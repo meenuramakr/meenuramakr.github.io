@@ -1,121 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <title>Meenakshi Ramakrishnan | Resume</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Quest: The Investigations of Meenakshi Ramakrishnan</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-        body {
-            font-family: "Playfair Display", serif;
-            background-color: #2f2c26;
-            color: #c4a47c;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            cursor: url('magnifying-glass.png'), auto;
-        }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            background: #403d39;
-            padding: 20px;
-            border-radius: 10px;
-            border: 3px solid #a38a5f;
-            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .header {
-            grid-column: span 2;
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .case-file {
-            background: #5a534a;
-            padding: 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
-            font-size: 18px;
-            font-weight: bold;
-            border: 2px solid #c4a47c;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .case-file:hover {
-            transform: scale(1.05);
-            background: #74695c;
-        }
-        .case-details {
-            display: none;
-            text-align: left;
-            padding: 20px;
-            background: #5a534a;
-            border-radius: 10px;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateY(90deg);
-            width: 80%;
-            max-width: 600px;
-            border: 3px solid #c4a47c;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            animation: flipOpen 0.5s ease-in-out forwards;
-        }
-        @keyframes flipOpen {
-            from { transform: translate(-50%, -50%) rotateY(90deg); opacity: 0; }
-            to { transform: translate(-50%, -50%) rotateY(0deg); opacity: 1; }
-        }
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">Data Quest: The Investigations of Meenakshi Ramakrishnan</div>
-        
-        <div class="case-file" onclick="openCase('about')">Case #001: The Background Report</div>
-        <div class="case-file" onclick="openCase('skills')">Case #002: The Toolbox</div>
-        <div class="case-file" onclick="openCase('projects')">Case #003: Data Investigations</div>
-        <div class="case-file" onclick="openCase('experience')">Case #004: Professional Records</div>
-        <div class="case-file" onclick="openCase('contact')">Case #005: The Final Lead</div>
+        <div class="hero">
+            <h1 class="name"><strong>Meenakshi</strong> Ramakrishnan</h1>
+            <span class="job-title">Data Science & Linguistics Student</span>
+            <span class="email">meenuramakr@gmail.com</span>
+            <h2 class="lead">Connecting data, language, and community to solve real-world challenges.</h2>
+        </div>
     </div>
-    
-    <div class="case-details" id="about"><span class="close-btn" onclick="closeCase('about')">✖</span><p>A passionate data detective solving real-world problems with statistics, linguistics, and technology.</p></div>
-    <div class="case-details" id="skills"><span class="close-btn" onclick="closeCase('skills')">✖</span><p>Skills: Cloud Computing (AWS), Python, R, SQL, Data Visualization, NLP, Machine Learning, Web Development.</p></div>
-    <div class="case-details" id="projects"><span class="close-btn" onclick="closeCase('projects')">✖</span><p>Notable Cases Solved: <ul><li>Crusine App (Food Redistribution Platform)</li><li>Fraud Detection AI for Citi Bank</li><li>Naive Bayes NLP Language Classifier</li></ul></p></div>
-    <div class="case-details" id="experience"><span class="close-btn" onclick="closeCase('experience')">✖</span><p>Worked at: <ul><li>Citi Bank (Fraud Analyst)</li><li>Liberty Mutual (API Intern)</li><li>Purdue Exponent (Editor & Reporter)</li></ul></p></div>
-    <div class="case-details" id="contact"><span class="close-btn" onclick="closeCase('contact')">✖</span><p>Email: meenuramakr@gmail.com | LinkedIn: linkedin.com/in/meenakshiramakr</p></div>
-    
-    <script>
-        function openCase(id) {
-            let audio = new Audio('open.mp3');
-            audio.play();
-            document.getElementById(id).style.display = "block";
-        }
-        function closeCase(id) {
-            let audio = new Audio('close.mp3');
-            audio.play();
-            document.getElementById(id).style.display = "none";
-        }
-    </script>
+
+    <div class="container">
+        <div class="sections">
+            <h2 class="section-title">Skills</h2>
+            <div class="list-card"><span class="exp">AWS Certified</span>
+                <div><h3>Cloud Computing</h3></div>
+            </div>
+            <div class="list-card"><span class="exp">Proficient</span>
+                <div><h3>Python, HTML, R, SQL</h3></div>
+            </div>
+            <div class="list-card"><span class="exp">Data Analysis</span>
+                <div><h3>Excel, SQL, Data Modeling</h3></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container cards">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="card">
+            <h3>Personal Banking Analyst - Global Fraud (Citi Bank)</h3>
+            <p>Optimized fraud detection workflows, reducing processing time by 20% and improving detection rates.</p>
+        </div>
+        <div class="card">
+            <h3>API Intern (Liberty Mutual)</h3>
+            <p>Developed a scalable API leveraging AWS for secure data ingestion and processing.</p>
+        </div>
+        <div class="card">
+            <h3>Corporate Partner (Sandia Flight)</h3>
+            <p>Applied Kalman filters for reconstructing flight data, improving historical pattern analysis accuracy.</p>
+        </div>
+        <div class="card">
+            <h3>STAT 190 TA (Purdue University)</h3>
+            <p>Assisted 50+ students with coding projects on data visualization using R.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Leadership & Projects</h2>
+        <div class="card">
+            <h3>IEEE Racing (Captain)</h3>
+            <p>Revived the team, secured funding, and led them to national competitions.</p>
+        </div>
+        <div class="card">
+            <h3>Hack the Future</h3>
+            <p>Developed a bilingual website for the Latino Cultural Center using NLP.</p>
+        </div>
+        <div class="card">
+            <h3>Aharya Indian Classical Dance</h3>
+            <p>Organized 15 performances and starred in two award-winning routines.</p>
+        </div>
+        <div class="card">
+            <h3>Publication</h3>
+            <p>Co-authored "Impact of Returning to Class in COVID" published in PLOS One.</p>
+        </div>
+    </div>
+
+    <footer class="container">
+        <span>Coded by <a href="https://meenuramakr.github.io">Meenakshi Ramakrishnan</a></span>
+    </footer>
 </body>
 </html>
