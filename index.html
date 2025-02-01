@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Quest - Meenakshi Ramakrishnan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0e0e0e;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .terminal {
+            background: black;
+            color: #00ff00;
+            padding: 20px;
+            font-family: monospace;
+            text-align: left;
+            height: 300px;
+            overflow-y: auto;
+            border-radius: 10px;
+            border: 2px solid #00ff00;
+        }
+        input {
+            width: 100%;
+            background: black;
+            color: #00ff00;
+            border: none;
+            font-family: monospace;
+            font-size: 16px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Data Quest</h1>
+        <p>Explore Meenakshi's projects by interacting with the terminal below.</p>
+        <div class="terminal" id="terminal">
+            <p>> Type "help" to get started.</p>
+        </div>
+        <input type="text" id="commandInput" placeholder="Enter command here...">
+    </div>
+
+    <script>
+        const terminal = document.getElementById("terminal");
+        const commandInput = document.getElementById("commandInput");
+
+        const commands = {
+            "help": "Available commands: help, projects, skills, contact",
+            "projects": "1. NLP Language Classifier  2. Crusine App (Food Redistribution)  3. Fraud Detection AI",
+            "skills": "Python, R, SQL, Machine Learning, NLP, Data Visualization",
+            "contact": "Email: meenuramakr@gmail.com | LinkedIn: linkedin.com/in/meenakshiramakr"
+        };
+
+        commandInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                let command = commandInput.value.toLowerCase().trim();
+                commandInput.value = "";
+                if (commands[command]) {
+                    terminal.innerHTML += `<p>> ${command}</p><p>${commands[command]}</p>`;
+                } else {
+                    terminal.innerHTML += `<p>> ${command}</p><p>Command not found. Type 'help' for available commands.</p>`;
+                }
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
