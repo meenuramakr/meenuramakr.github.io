@@ -30,11 +30,17 @@
             border-radius: 5px;
             font-weight: bold;
         }
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
             margin-top: 30px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
         .card {
             background: white;
@@ -42,6 +48,8 @@
             padding: 20px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
+            width: 300px;
+            text-align: center;
         }
         .card:hover {
             transform: scale(1.05);
@@ -49,6 +57,12 @@
         .card i {
             font-size: 40px;
             color: #4A90E2;
+        }
+        .cards .card:nth-child(3) {
+            order: 2;
+        }
+        .cards .card:nth-child(2) {
+            order: 3;
         }
         footer {
             text-align: center;
@@ -73,59 +87,67 @@
         </div>
     </div>
 
-    <div class="container cards">
-        <h2 class="section-title">Skills</h2>
-        <div class="card"><i class="fas fa-cloud"></i>
-            <h3>Cloud Computing</h3>
-            <p>AWS Certified</p>
+    <div class="container cards-container">
+        <div>
+            <h2 class="section-title">Skills</h2>
+            <div class="cards">
+                <div class="card"><i class="fas fa-cloud"></i>
+                    <h3>Cloud Computing</h3>
+                    <p>AWS Certified</p>
+                </div>
+                <div class="card"><i class="fas fa-database"></i>
+                    <h3>Data Analysis</h3>
+                    <p>Excel, SQL, Data Modeling</p>
+                </div>
+                <div class="card"><i class="fas fa-code"></i>
+                    <h3>Programming</h3>
+                    <p>Python, HTML, R, SQL</p>
+                </div>
+            </div>
         </div>
-        <div class="card"><i class="fas fa-code"></i>
-            <h3>Programming</h3>
-            <p>Python, HTML, R, SQL</p>
+        
+        <div>
+            <h2 class="section-title">Work Experience</h2>
+            <div class="cards">
+                <div class="card"><i class="fas fa-briefcase"></i>
+                    <h3>Citi Bank</h3>
+                    <p>Optimized fraud detection workflows, reducing processing time by 20% and improving detection rates.</p>
+                </div>
+                <div class="card"><i class="fas fa-code"></i>
+                    <h3>Liberty Mutual</h3>
+                    <p>Developed a scalable API leveraging AWS for secure data ingestion and processing.</p>
+                </div>
+                <div class="card"><i class="fas fa-plane"></i>
+                    <h3>Sandia Flight</h3>
+                    <p>Applied Kalman filters for reconstructing flight data, improving historical pattern analysis accuracy.</p>
+                </div>
+                <div class="card"><i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Purdue University</h3>
+                    <p>Assisted 50+ students with coding projects on data visualization using R.</p>
+                </div>
+            </div>
         </div>
-        <div class="card"><i class="fas fa-database"></i>
-            <h3>Data Analysis</h3>
-            <p>Excel, SQL, Data Modeling</p>
-        </div>
-    </div>
-
-    <div class="container cards">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="card"><i class="fas fa-briefcase"></i>
-            <h3>Citi Bank</h3>
-            <p>Optimized fraud detection workflows, reducing processing time by 20% and improving detection rates.</p>
-        </div>
-        <div class="card"><i class="fas fa-code"></i>
-            <h3>Liberty Mutual</h3>
-            <p>Developed a scalable API leveraging AWS for secure data ingestion and processing.</p>
-        </div>
-        <div class="card"><i class="fas fa-plane"></i>
-            <h3>Sandia Flight</h3>
-            <p>Applied Kalman filters for reconstructing flight data, improving historical pattern analysis accuracy.</p>
-        </div>
-        <div class="card"><i class="fas fa-chalkboard-teacher"></i>
-            <h3>Purdue University</h3>
-            <p>Assisted 50+ students with coding projects on data visualization using R.</p>
-        </div>
-    </div>
-
-    <div class="container cards">
-        <h2 class="section-title">Leadership & Projects</h2>
-        <div class="card"><i class="fas fa-users"></i>
-            <h3>IEEE Racing</h3>
-            <p>Revived the team, secured funding, and led them to national competitions.</p>
-        </div>
-        <div class="card"><i class="fas fa-laptop-code"></i>
-            <h3>Hack the Future</h3>
-            <p>Developed a bilingual website for the Latino Cultural Center using NLP.</p>
-        </div>
-        <div class="card"><i class="fas fa-music"></i>
-            <h3>Aharya Indian Classical Dance</h3>
-            <p>Organized 15 performances and starred in two award-winning routines.</p>
-        </div>
-        <div class="card"><i class="fas fa-book"></i>
-            <h3>Publication</h3>
-            <p>Co-authored "Impact of Returning to Class in COVID" published in PLOS One.</p>
+        
+        <div>
+            <h2 class="section-title">Leadership & Projects</h2>
+            <div class="cards">
+                <div class="card"><i class="fas fa-users"></i>
+                    <h3>IEEE Racing</h3>
+                    <p>Revived the team, secured funding, and led them to national competitions.</p>
+                </div>
+                <div class="card"><i class="fas fa-laptop-code"></i>
+                    <h3>Hack the Future</h3>
+                    <p>Developed a bilingual website for the Latino Cultural Center using NLP.</p>
+                </div>
+                <div class="card"><i class="fas fa-music"></i>
+                    <h3>Aharya Indian Classical Dance</h3>
+                    <p>Organized 15 performances and starred in two award-winning routines.</p>
+                </div>
+                <div class="card"><i class="fas fa-book"></i>
+                    <h3>Publication</h3>
+                    <p>Co-authored "Impact of Returning to Class in COVID" published in PLOS One.</p>
+                </div>
+            </div>
         </div>
     </div>
 
