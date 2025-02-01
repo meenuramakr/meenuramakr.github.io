@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Quest - Meenakshi Ramakrishnan</title>
+    <title>Data Detective - Meenakshi Ramakrishnan</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0e0e0e;
-            color: #fff;
+            font-family: "Courier New", monospace;
+            background-color: #2c2c2c;
+            color: #d4af37;
             text-align: center;
             margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #d4af37;
         }
         .terminal {
             background: black;
@@ -23,7 +27,7 @@
             padding: 20px;
             font-family: monospace;
             text-align: left;
-            height: 300px;
+            height: 350px;
             overflow-y: auto;
             border-radius: 10px;
             border: 2px solid #00ff00;
@@ -41,8 +45,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Data Quest</h1>
-        <p>Explore Meenakshi's projects by interacting with the terminal below.</p>
+        <h1>🔍 Welcome, Data Detective!</h1>
+        <p>Uncover the mysteries of Meenakshi Ramakrishnan's career by investigating key data insights below.</p>
         <div class="terminal" id="terminal">
             <p>> Type "help" to get started.</p>
         </div>
@@ -54,9 +58,11 @@
         const commandInput = document.getElementById("commandInput");
 
         const commands = {
-            "help": "Available commands: help, projects, skills, contact",
-            "projects": "1. NLP Language Classifier  2. Crusine App (Food Redistribution)  3. Fraud Detection AI",
-            "skills": "Python, R, SQL, Machine Learning, NLP, Data Visualization",
+            "help": "Available commands: about, skills, projects, experience, contact",
+            "about": "Passionate about connecting data, language, and community through linguistics and statistics.",
+            "skills": "Cloud Computing (AWS), Python, R, SQL, Data Analysis, NLP, Web Dev (HTML, CSS).",
+            "projects": "1. Crusine App (Food Redistribution) 2. Fraud Detection AI 3. NLP Language Classifier",
+            "experience": "Citi Bank (Fraud Analyst), Liberty Mutual (API Intern), Purdue Exponent (Editor & Reporter).",
             "contact": "Email: meenuramakr@gmail.com | LinkedIn: linkedin.com/in/meenakshiramakr"
         };
 
