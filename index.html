@@ -5,6 +5,63 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Lato', sans-serif;
+            color: #333;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #4A90E2;
+            color: white;
+            border-radius: 10px;
+        }
+        .job-title {
+            background-color: #D9E7F8;
+            color: #4A90E2;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card i {
+            font-size: 40px;
+            color: #4A90E2;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+        }
+        footer a {
+            color: #4A90E2;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -16,64 +73,57 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="sections">
-            <h2 class="section-title">Skills</h2>
-            <div class="list-card"><span class="exp">AWS Certified</span>
-                <div><h3>Cloud Computing</h3></div>
-            </div>
-            <div class="list-card"><span class="exp">Proficient</span>
-                <div><h3>Python, HTML, R, SQL</h3></div>
-            </div>
-            <div class="list-card"><span class="exp">Data Analysis</span>
-                <div><h3>Excel, SQL, Data Modeling</h3></div>
-            </div>
+    <div class="container cards">
+        <h2 class="section-title">Skills</h2>
+        <div class="card"><i class="fas fa-cloud"></i>
+            <h3>Cloud Computing</h3>
+            <p>AWS Certified</p>
+        </div>
+        <div class="card"><i class="fas fa-code"></i>
+            <h3>Programming</h3>
+            <p>Python, HTML, R, SQL</p>
+        </div>
+        <div class="card"><i class="fas fa-database"></i>
+            <h3>Data Analysis</h3>
+            <p>Excel, SQL, Data Modeling</p>
         </div>
     </div>
 
     <div class="container cards">
         <h2 class="section-title">Work Experience</h2>
-        <div class="card">
-            <i class="fas fa-briefcase"></i>
-            <h3>Personal Banking Analyst - Global Fraud (Citi Bank)</h3>
+        <div class="card"><i class="fas fa-briefcase"></i>
+            <h3>Citi Bank</h3>
             <p>Optimized fraud detection workflows, reducing processing time by 20% and improving detection rates.</p>
         </div>
-        <div class="card">
-            <i class="fas fa-code"></i>
-            <h3>API Intern (Liberty Mutual)</h3>
+        <div class="card"><i class="fas fa-code"></i>
+            <h3>Liberty Mutual</h3>
             <p>Developed a scalable API leveraging AWS for secure data ingestion and processing.</p>
         </div>
-        <div class="card">
-            <i class="fas fa-plane"></i>
-            <h3>Corporate Partner (Sandia Flight)</h3>
+        <div class="card"><i class="fas fa-plane"></i>
+            <h3>Sandia Flight</h3>
             <p>Applied Kalman filters for reconstructing flight data, improving historical pattern analysis accuracy.</p>
         </div>
-        <div class="card">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <h3>STAT 190 TA (Purdue University)</h3>
+        <div class="card"><i class="fas fa-chalkboard-teacher"></i>
+            <h3>Purdue University</h3>
             <p>Assisted 50+ students with coding projects on data visualization using R.</p>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container cards">
         <h2 class="section-title">Leadership & Projects</h2>
-        <div class="card">
-            <i class="fas fa-users"></i>
-            <h3>IEEE Racing (Captain)</h3>
+        <div class="card"><i class="fas fa-users"></i>
+            <h3>IEEE Racing</h3>
             <p>Revived the team, secured funding, and led them to national competitions.</p>
         </div>
-        <div class="card">
-            <i class="fas fa-laptop-code"></i>
+        <div class="card"><i class="fas fa-laptop-code"></i>
             <h3>Hack the Future</h3>
             <p>Developed a bilingual website for the Latino Cultural Center using NLP.</p>
         </div>
-        <div class="card">
-            <i class="fas fa-music"></i>
+        <div class="card"><i class="fas fa-music"></i>
             <h3>Aharya Indian Classical Dance</h3>
             <p>Organized 15 performances and starred in two award-winning routines.</p>
         </div>
-        <div class="card">
-            <i class="fas fa-book"></i>
+        <div class="card"><i class="fas fa-book"></i>
             <h3>Publication</h3>
             <p>Co-authored "Impact of Returning to Class in COVID" published in PLOS One.</p>
         </div>
