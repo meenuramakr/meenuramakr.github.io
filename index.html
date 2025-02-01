@@ -3,82 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Detective - Meenakshi Ramakrishnan</title>
+    <title>Data Quest: The Investigations of Meenakshi Ramakrishnan</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
         body {
-            font-family: "Courier New", monospace;
-            background-color: #2c2c2c;
-            color: #d4af37;
+            font-family: "Playfair Display", serif;
+            background-color: #2f2c26;
+            color: #c4a47c;
             text-align: center;
             margin: 0;
             padding: 20px;
+            cursor: url('magnifying-glass.png'), auto;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
-            background: #1e1e1e;
+            background: #403d39;
             padding: 20px;
             border-radius: 10px;
-            border: 2px solid #d4af37;
+            border: 3px solid #a38a5f;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            animation: fadeIn 1.5s ease-in-out;
         }
-        .terminal {
-            background: black;
-            color: #00ff00;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            grid-column: span 2;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .case-file {
+            background: #5a534a;
             padding: 20px;
-            font-family: monospace;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid #c4a47c;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-file:hover {
+            transform: scale(1.05);
+            background: #74695c;
+        }
+        .case-details {
+            display: none;
             text-align: left;
-            height: 350px;
-            overflow-y: auto;
+            padding: 20px;
+            background: #5a534a;
             border-radius: 10px;
-            border: 2px solid #00ff00;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateY(90deg);
+            width: 80%;
+            max-width: 600px;
+            border: 3px solid #c4a47c;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            animation: flipOpen 0.5s ease-in-out forwards;
         }
-        input {
-            width: 100%;
-            background: black;
-            color: #00ff00;
-            border: none;
-            font-family: monospace;
-            font-size: 16px;
-            outline: none;
+        @keyframes flipOpen {
+            from { transform: translate(-50%, -50%) rotateY(90deg); opacity: 0; }
+            to { transform: translate(-50%, -50%) rotateY(0deg); opacity: 1; }
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🔍 Welcome, Data Detective!</h1>
-        <p>Uncover the mysteries of Meenakshi Ramakrishnan's career by investigating key data insights below.</p>
-        <div class="terminal" id="terminal">
-            <p>> Type "help" to get started.</p>
-        </div>
-        <input type="text" id="commandInput" placeholder="Enter command here...">
+        <div class="header">Data Quest: The Investigations of Meenakshi Ramakrishnan</div>
+        
+        <div class="case-file" onclick="openCase('about')">Case #001: The Background Report</div>
+        <div class="case-file" onclick="openCase('skills')">Case #002: The Toolbox</div>
+        <div class="case-file" onclick="openCase('projects')">Case #003: Data Investigations</div>
+        <div class="case-file" onclick="openCase('experience')">Case #004: Professional Records</div>
+        <div class="case-file" onclick="openCase('contact')">Case #005: The Final Lead</div>
     </div>
-
+    
+    <div class="case-details" id="about"><span class="close-btn" onclick="closeCase('about')">✖</span><p>A passionate data detective solving real-world problems with statistics, linguistics, and technology.</p></div>
+    <div class="case-details" id="skills"><span class="close-btn" onclick="closeCase('skills')">✖</span><p>Skills: Cloud Computing (AWS), Python, R, SQL, Data Visualization, NLP, Machine Learning, Web Development.</p></div>
+    <div class="case-details" id="projects"><span class="close-btn" onclick="closeCase('projects')">✖</span><p>Notable Cases Solved: <ul><li>Crusine App (Food Redistribution Platform)</li><li>Fraud Detection AI for Citi Bank</li><li>Naive Bayes NLP Language Classifier</li></ul></p></div>
+    <div class="case-details" id="experience"><span class="close-btn" onclick="closeCase('experience')">✖</span><p>Worked at: <ul><li>Citi Bank (Fraud Analyst)</li><li>Liberty Mutual (API Intern)</li><li>Purdue Exponent (Editor & Reporter)</li></ul></p></div>
+    <div class="case-details" id="contact"><span class="close-btn" onclick="closeCase('contact')">✖</span><p>Email: meenuramakr@gmail.com | LinkedIn: linkedin.com/in/meenakshiramakr</p></div>
+    
     <script>
-        const terminal = document.getElementById("terminal");
-        const commandInput = document.getElementById("commandInput");
-
-        const commands = {
-            "help": "Available commands: about, skills, projects, experience, contact",
-            "about": "Passionate about connecting data, language, and community through linguistics and statistics.",
-            "skills": "Cloud Computing (AWS), Python, R, SQL, Data Analysis, NLP, Web Dev (HTML, CSS).",
-            "projects": "1. Crusine App (Food Redistribution) 2. Fraud Detection AI 3. NLP Language Classifier",
-            "experience": "Citi Bank (Fraud Analyst), Liberty Mutual (API Intern), Purdue Exponent (Editor & Reporter).",
-            "contact": "Email: meenuramakr@gmail.com | LinkedIn: linkedin.com/in/meenakshiramakr"
-        };
-
-        commandInput.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                let command = commandInput.value.toLowerCase().trim();
-                commandInput.value = "";
-                if (commands[command]) {
-                    terminal.innerHTML += `<p>> ${command}</p><p>${commands[command]}</p>`;
-                } else {
-                    terminal.innerHTML += `<p>> ${command}</p><p>Command not found. Type 'help' for available commands.</p>`;
-                }
-                terminal.scrollTop = terminal.scrollHeight;
-            }
-        });
+        function openCase(id) {
+            let audio = new Audio('open.mp3');
+            audio.play();
+            document.getElementById(id).style.display = "block";
+        }
+        function closeCase(id) {
+            let audio = new Audio('close.mp3');
+            audio.play();
+            document.getElementById(id).style.display = "none";
+        }
     </script>
 </body>
 </html>
