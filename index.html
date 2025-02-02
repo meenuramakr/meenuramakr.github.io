@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meenakshi Ramakrishnan | Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="dashboard">
@@ -13,67 +12,58 @@
         <div class="profile-section">
             <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-icon">
             <h1>Meenakshi Ramakrishnan</h1>
-            <p><i class="fas fa-user-graduate"></i> Data Science & Linguistics Student</p>
-            <p><i class="fas fa-lightbulb"></i> Connecting data, language, and community to solve real-world challenges.</p>
-            <p><i class="fas fa-envelope"></i> meenuramakr@gmail.com</p>
-            <p><i class="fas fa-phone"></i> 760-936-3497</p>
-            <a href="https://linkedin.com/in/meenuramakr" target="_blank">
-                <button class="download-resume">View LinkedIn</button>
-            </a>
+            <p>Data Science & Linguistics Student</p>
+            <button class="contact-button">Contact Me</button>
             <a href="resume.pdf" download>
-                <button class="download-resume">Download Resume</button>
+                <button class="resume-button">Download Resume</button>
             </a>
-            <div class="profile-stats">
-                <div class="stat"><strong>Education:</strong> Purdue University – B.S. in Statistics & Linguistics (2025)</div>
-                <div class="stat"><strong>Relevant Courses:</strong> Machine Learning, Data Visualization, Statistical Modeling</div>
-                <div class="stat"><strong>Skills:</strong> Python, R, SQL, HTML, CSS, AWS Certified Cloud Practitioner</div>
-                <div class="stat"><strong>Languages:</strong> Spanish (Advanced), Tamil (Fluent)</div>
-                <div class="stat"><strong>Machine Learning:</strong> NLP, Naïve Bayes, Recommendation Systems</div>
+        </div>
+
+        <!-- Dashboard Boxes -->
+        <div class="dashboard-boxes">
+            <div class="box" onclick="openBox('portfolio')">
+                <h2>Portfolio</h2>
+            </div>
+            <div class="box" onclick="openBox('projects')">
+                <h2>Projects</h2>
+            </div>
+            <div class="box" onclick="openBox('visualizations')">
+                <h2>Visualizations</h2>
+            </div>
+            <div class="box" onclick="openBox('side-projects')">
+                <h2>Side Projects</h2>
             </div>
         </div>
 
-        <!-- Main Content Section -->
-        <div class="main-section">
-            <div class="tabs">
-                <button onclick="showTab('about')">About Me</button>
-                <button onclick="showTab('projects')">Projects</button>
-                <button onclick="showTab('visualizations')">Linguistics Visualizations</button>
-            </div>
-            <div id="about" class="tab-content">
-                <h3>About Me</h3>
-                <p>Hi! I'm a Data Science & Linguistics student passionate about connecting people and solving real-world problems through technology.</p>
-            </div>
-            <div id="projects" class="tab-content" style="display:none;">
-                <h3>Projects</h3>
-                <p>Here, I showcase my key projects like Crusine App, NLP algorithms, and more.</p>
-            </div>
-            <div id="visualizations" class="tab-content" style="display:none;">
-                <h3>Linguistics Live Data</h3>
-                <canvas id="linguisticsChart" width="400" height="200"></canvas>
+        <!-- Modal for Box Content -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="modal-body"></div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.style.display = 'none');
-            document.getElementById(tabId).style.display = 'block';
+        function openBox(content) {
+            const modal = document.getElementById('modal');
+            const body = document.getElementById('modal-body');
+            modal.style.display = 'flex';
+
+            if (content === 'portfolio') {
+                body.innerHTML = '<h2>Portfolio</h2><p>My portfolio content...</p>';
+            } else if (content === 'projects') {
+                body.innerHTML = '<h2>Projects</h2><p>My project details...</p>';
+            } else if (content === 'visualizations') {
+                body.innerHTML = '<h2>Visualizations</h2><p>My visualizations...</p>';
+            } else if (content === 'side-projects') {
+                body.innerHTML = '<h2>Side Projects</h2><p>Details of side projects...</p>';
+            }
         }
 
-        const ctx = document.getElementById('linguisticsChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['English', 'Spanish', 'Tamil', 'French'],
-                datasets: [{
-                    label: 'Frequency of Usage',
-                    data: [50, 30, 15, 5],
-                    backgroundColor: ['#A8E6CF', '#FFD3B6', '#FF8B94', '#DCE775']
-                }]
-            }
-        });
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
     </script>
 </body>
 </html>
