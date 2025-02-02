@@ -38,38 +38,41 @@
             </a>
         </div>
 
-        <!-- Tab Navigation -->
-        <div class="tab-navigation">
-            <button class="tab active" data-tab="about" onclick="switchTab('about')">
-                <i class="fas fa-user"></i>
-            </button>
-            <button class="tab" data-tab="projects" onclick="switchTab('projects')">
-                <i class="fas fa-briefcase"></i>
-            </button>
-            <button class="tab" data-tab="visualizations" onclick="switchTab('visualizations')">
-                <i class="fas fa-chart-bar"></i>
-            </button>
-            <button class="tab" data-tab="side-projects" onclick="switchTab('side-projects')">
-                <i class="fas fa-gamepad"></i>
-            </button>
-        </div>
+        <!-- Main Content Section -->
+        <div class="content-section">
+            <!-- Tab Navigation (Top of Right Section) -->
+            <div class="tab-navigation">
+                <button class="tab active" data-tab="about" onclick="switchTab('about')">
+                    <i class="fas fa-user"></i> <!-- About Me Icon -->
+                </button>
+                <button class="tab" data-tab="projects" onclick="switchTab('projects')">
+                    <i class="fas fa-briefcase"></i> <!-- Projects Icon -->
+                </button>
+                <button class="tab" data-tab="visualizations" onclick="switchTab('visualizations')">
+                    <i class="fas fa-chart-bar"></i> <!-- Visualizations Icon -->
+                </button>
+                <button class="tab" data-tab="side-projects" onclick="switchTab('side-projects')">
+                    <i class="fas fa-gamepad"></i> <!-- Side Projects Icon -->
+                </button>
+            </div>
 
-        <!-- Content Sections -->
-        <div id="about" class="tab-content active">
-            <h2>About Me</h2>
-            <p>Hi! I'm a Data Science & Linguistics student passionate about connecting people and solving real-world problems through technology.</p>
-        </div>
-        <div id="projects" class="tab-content">
-            <h2>Projects</h2>
-            <p>Here, I showcase my key projects like Crusine App, NLP algorithms, and more.</p>
-        </div>
-        <div id="visualizations" class="tab-content">
-            <h2>Linguistics Visualizations</h2>
-            <p>Explore interactive visualizations of linguistic trends!</p>
-        </div>
-        <div id="side-projects" class="tab-content">
-            <h2>Side Projects</h2>
-            <p>Details of my side projects and experiments.</p>
+            <!-- Tab Content (Below Tabs) -->
+            <div id="about" class="tab-content active">
+                <h2>About Me</h2>
+                <p>Hi! I'm a Data Science & Linguistics student passionate about connecting people and solving real-world problems through technology.</p>
+            </div>
+            <div id="projects" class="tab-content">
+                <h2>Projects</h2>
+                <p>Here, I showcase my key projects like Crusine App, NLP algorithms, and more.</p>
+            </div>
+            <div id="visualizations" class="tab-content">
+                <h2>Linguistics Visualizations</h2>
+                <p>Explore interactive visualizations of linguistic trends!</p>
+            </div>
+            <div id="side-projects" class="tab-content">
+                <h2>Side Projects</h2>
+                <p>Details of my side projects and experiments.</p>
+            </div>
         </div>
     </div>
 </body>

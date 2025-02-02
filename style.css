@@ -63,25 +63,28 @@ body {
 /* Tab Navigation */
 .tab-navigation {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
     background-color: #eaf4e1;
-    padding: 10px;
     border-radius: 15px;
-    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .tab {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 18px;
     color: #7a8c74;
     cursor: pointer;
-    transition: transform 0.2s, color 0.3s;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.tab.active {
+    color: #4A90E2; /* Highlight active tab */
 }
 
 .tab i {
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .tab:hover {
@@ -95,37 +98,9 @@ body {
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 100%;
     display: none; /* Hidden by default */
 }
 
 .tab-content.active {
-    display: block;
-}
-
-.tab-content h2 {
-    color: #5b755a; /* Muted green */
-    margin-bottom: 10px;
-}
-
-/* Active Tab Style */
-.tab.active {
-    color: #4A90E2; /* Highlighted color */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .dashboard {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-
-    .tab-navigation {
-        flex-direction: row;
-    }
-
-    .tab-content {
-        padding: 10px;
-    }
+    display: block; /* Show active content */
 }
