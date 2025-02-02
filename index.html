@@ -1,167 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meenakshi Ramakrishnan | Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            background-color: #f4f4f9;
-            font-family: 'Lato', sans-serif;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden; /* Prevent scrolling */
-        }
-
-        .dashboard {
-            display: grid;
-            grid-template-columns: 1.2fr 2.8fr; /* Adjusted ratio to prevent overlap */
-            gap: 20px;
-            width: 95%;
-            max-width: 1200px;
-            height: 95vh; /* Ensures content fits within the viewport */
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            overflow: hidden; /* Ensures content does not overflow */
-            position: relative;
-        }
-
-        .profile-section {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            background-color: #4A90E2;
-            border-radius: 10px;
-            color: white;
-            padding: 20px;
-            width: 100%;
-            z-index: 2;
-        }
-
-        .profile-section img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-        }
-
-        .profile-section h1 {
-            margin: 0;
-            font-size: 22px;
-        }
-
-        .profile-section p {
-            font-size: 14px;
-            margin-top: 8px;
-            text-align: left;
-        }
-
-        .profile-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 15px;
-            width: 100%;
-        }
-
-        .stat {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px;
-            border-radius: 8px;
-            text-align: left;
-            font-size: 12px;
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 14px;
-        }
-
-        .main-section {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: flex-start;
-            margin-left: 20px; /* Moves cards slightly to the right */
-            z-index: 1;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            text-align: center;
-            transition: transform 0.3s, max-height 0.5s ease-in-out;
-            max-height: 50px;
-            overflow: hidden;
-            width: 90%; /* Prevents overlap with profile section */
-            position: relative;
-        }
-
-        .card:hover {
-            transform: scale(1.02);
-            max-height: 500px; /* Expand to show full details */
-            z-index: 1;
-        }
-
-        .card i {
-            font-size: 28px;
-            color: #4A90E2;
-            margin-bottom: 8px;
-        }
-
-        .card h3 {
-            margin: 0;
-            font-size: 16px;
-            color: #333;
-        }
-
-        .card p {
-            margin-top: 6px;
-            font-size: 14px;
-            color: #555;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            position: relative;
-        }
-
-        .card:hover p {
-            opacity: 1;
-        }
-    </style>
 </head>
 <body>
     <div class="dashboard">
         <!-- Profile Section -->
         <div class="profile-section">
-            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-icon">
             <h1>Meenakshi Ramakrishnan</h1>
-            <p><span class="icon"><i class="fas fa-user-graduate"></i></span> Data Science & Linguistics Student</p>
-            <p><span class="icon"><i class="fas fa-lightbulb"></i></span> Connecting data, language, and community to solve real-world challenges.</p>
-            <p><span class="icon"><i class="fas fa-envelope"></i></span> meenuramakr@gmail.com | <span class="icon"><i class="fas fa-phone"></i></span> 760-936-3497</p>
-            <p><a href="https://linkedin.com/in/meenakshiramakr" style="color: #D9E7F8; text-decoration: none;"><span class="icon"><i class="fab fa-linkedin"></i></span> LinkedIn</a></p>
-            <div class="profile-stats">
-                <div class="toolkit">
-                    <h3>Toolkit</h3>
-                    <ul>
-                        <li>🛠️ Programming: Python, R, SQL, HTML, CSS</li>
-                        <li>📊 Data Visualization: Tableau, R, Excel</li>
-                        <li>☁️ Cloud Computing: AWS Certified Cloud Practitioner</li>
-                        <li>💡 NLP & ML: Naïve Bayes, Recommendation Systems</li>
-                        <li>🌐 Languages: Spanish (Advanced), Tamil (Fluent)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <a href="/Users/sparklezzz/Desktop/job applications/MeenuResume2025.pdf" download>
-                <button class="download-resume">Download My Resume</button>
+            <p><i class="fas fa-user-graduate"></i> Data Science & Linguistics Student</p>
+            <p><i class="fas fa-lightbulb"></i> Connecting data, language, and community to solve real-world challenges.</p>
+            <p><i class="fas fa-envelope"></i> meenuramakr@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 760-936-3497</p>
+            <a href="https://linkedin.com/in/meenuramakr" target="_blank">
+                <button class="download-resume">View LinkedIn</button>
             </a>
+            <a href="resume.pdf" download>
+                <button class="download-resume">Download Resume</button>
+            </a>
+            <div class="profile-stats">
+                <div class="stat"><strong>Education:</strong> Purdue University – B.S. in Statistics & Linguistics (2025)</div>
+                <div class="stat"><strong>Relevant Courses:</strong> Machine Learning, Data Visualization, Statistical Modeling</div>
+                <div class="stat"><strong>Skills:</strong> Python, R, SQL, HTML, CSS, AWS Certified Cloud Practitioner</div>
+                <div class="stat"><strong>Languages:</strong> Spanish (Advanced), Tamil (Fluent)</div>
+                <div class="stat"><strong>Machine Learning:</strong> NLP, Naïve Bayes, Recommendation Systems</div>
+            </div>
         </div>
 
         <!-- Main Content Section -->
@@ -181,21 +49,31 @@
             </div>
             <div id="visualizations" class="tab-content" style="display:none;">
                 <h3>Linguistics Live Data</h3>
-                <p>Explore interactive visualizations of linguistic trends!</p>
+                <canvas id="linguisticsChart" width="400" height="200"></canvas>
             </div>
         </div>
-
-        <script>
-            function showTab(tabId) {
-                const tabs = document.querySelectorAll('.tab-content');
-                tabs.forEach(tab => tab.style.display = 'none');
-                document.getElementById(tabId).style.display = 'block';
-            }
-        </script>
-        
-        
-        
-
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+        }
+
+        const ctx = document.getElementById('linguisticsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['English', 'Spanish', 'Tamil', 'French'],
+                datasets: [{
+                    label: 'Frequency of Usage',
+                    data: [50, 30, 15, 5],
+                    backgroundColor: ['#A8E6CF', '#FFD3B6', '#FF8B94', '#DCE775']
+                }]
+            }
+        });
+    </script>
 </body>
 </html>
