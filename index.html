@@ -18,7 +18,7 @@
 
         .dashboard {
             display: grid;
-            grid-template-columns: 1.3fr 2.7fr; /* Adjust width proportions */
+            grid-template-columns: 1.2fr 2.8fr; /* Adjusted ratio to prevent overlap */
             gap: 20px;
             width: 95%;
             max-width: 1200px;
@@ -28,6 +28,7 @@
             box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
             overflow: hidden; /* Ensures content does not overflow */
+            position: relative;
         }
 
         .profile-section {
@@ -39,6 +40,7 @@
             color: white;
             padding: 20px;
             width: 100%;
+            z-index: 2;
         }
 
         .profile-section img {
@@ -82,10 +84,11 @@
 
         .main-section {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column;
             gap: 15px;
             align-items: flex-start;
+            margin-left: 20px; /* Moves cards slightly to the right */
+            z-index: 1;
         }
 
         .card {
@@ -94,12 +97,17 @@
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
             padding: 15px;
             text-align: center;
-            transition: transform 0.3s;
-            width: calc(50% - 10px); /* Ensure cards fit evenly without overlap */
+            transition: transform 0.3s, max-height 0.5s ease-in-out;
+            max-height: 50px;
+            overflow: hidden;
+            width: 90%; /* Prevents overlap with profile section */
+            position: relative;
         }
 
         .card:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
+            max-height: 500px; /* Expand to show full details */
+            z-index: 1;
         }
 
         .card i {
@@ -110,14 +118,21 @@
 
         .card h3 {
             margin: 0;
-            font-size: 14px;
+            font-size: 16px;
             color: #333;
         }
 
         .card p {
             margin-top: 6px;
-            font-size: 12px;
+            font-size: 14px;
             color: #555;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .card:hover p {
+            opacity: 1;
         }
     </style>
 </head>
@@ -130,8 +145,7 @@
             <p><span class="icon"><i class="fas fa-user-graduate"></i></span> Data Science & Linguistics Student</p>
             <p><span class="icon"><i class="fas fa-lightbulb"></i></span> Connecting data, language, and community to solve real-world challenges.</p>
             <p><span class="icon"><i class="fas fa-envelope"></i></span> meenuramakr@gmail.com | <span class="icon"><i class="fas fa-phone"></i></span> 760-936-3497</p>
-            <p><a href="https://linkedin.com/in/meenuramakr" style="color: #D9E7F8; text-decoration: none;"><span class="icon"><i class="fab fa-linkedin"></i></span> LinkedIn</a></p>
-
+            <p><a href="https://linkedin.com/in/meenakshiramakr" style="color: #D9E7F8; text-decoration: none;"><span class="icon"><i class="fab fa-linkedin"></i></span> LinkedIn</a></p>
             <div class="profile-stats">
                 <div class="stat"><strong>Education</strong> Purdue University – B.S. in Statistics & Linguistics (2025)</div>
                 <div class="stat"><strong>Relevant Courses</strong> Machine Learning, Data Visualization, Statistical Modeling</div>
@@ -143,24 +157,98 @@
 
         <!-- Main Content Section -->
         <div class="main-section">
-            <div class="card">
-                <i class="fas fa-briefcase"></i>
-                <h3>Work Experience</h3>
-                <p>Citi Bank, Liberty Mutual, Sandia Flight</p>
+    <div class="card">
+        <h3>Experience</h3>
+        <div class="card-content">
+            <div class="card-item">Citi Bank – Personal Banking Analyst</div>
+            <div class="details">
+                • Conducted comprehensive analysis of fraud operations across 30+ teams.<br>
+                • Identified inefficiencies in fraud reporting accuracy and escalations by analyzing workflow bottlenecks and data discrepancies, streamlining processes to decrease processing time by 20%.<br>
+                • Designed an interactive analytics dashboard for real-time fraud detection and workflow optimization.<br>
+                • Developed AI-based solutions for email automation and fraud detection, enhancing case resolution efficiency.
+            </div>
+            
+            <div class="card-item">Liberty Mutual – API Intern</div>
+            <div class="details">
+                • Developed a scalable API leveraging AWS infrastructure for secure, high-volume data ingestion and processing, reducing data retrieval time by 30% and improving system reliability for enterprise applications.<br>
+                • Optimized ETL workflows to automate data transformation, reducing manual intervention.<br>
+                • Enhanced front-end accessibility for an internal platform using WCAG 2.1-compliant design principles.
             </div>
 
-            <div class="card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Projects</h3>
-                <p>IEEE Racing, Hack the Future, Aharya Dance</p>
+            <div class="card-item">Sandia Flight – Corporate Partner</div>
+            <div class="details">
+                • Conducted usability testing and optimized flight data interfaces to improve accessibility.<br>
+                • Applied Kalman filters and probabilistic models to reconstruct incomplete flight data, improving accuracy by 30%.
             </div>
-
-            <div class="card">
-                <i class="fas fa-book"></i>
-                <h3>Publications</h3>
-                <p>Co-authored "Impact of Returning to Class in COVID" published in PLOS One.</p>
+            
+            <div class="card-item">Purdue University – Teaching Assistant</div>
+            <div class="details">
+                • Led weekly office hours, assisting 50+ students with coding projects in R for data visualization.<br>
+                • Provided real-time guidance on Piazza, ensuring clarity in course concepts.
+            </div>
+            
+            <div class="card-item">Purdue Exponent – Editor and Reporter</div>
+            <div class="details">
+                • Authored 100+ articles covering politics, campus events, and social issues.<br>
+                • Edited 600+ articles, ensuring journalistic integrity and factual accuracy.
             </div>
         </div>
+    </div>
+
+    <div class="card">
+        <h3>Leadership & Projects</h3>
+        <div class="card-content">
+            <div class="card-item">IEEE Racing Team – Captain</div>
+            <div class="details">
+                • Revived an inactive team, recruited and trained 12 new members, leading them to national competitions.<br>
+                • Secured $5,000 in funding through sponsorships and partnerships.
+            </div>
+            
+            <div class="card-item">IEEE Computer Society – Head of Machine Learning Initiative</div>
+            <div class="details">
+                • Organized 20+ workshops on machine learning for over 50 participants.<br>
+                • Mentored students in building a recommendation system for campus resources.
+            </div>
+            
+            <div class="card-item">Hack the Future – Software Developer</div>
+            <div class="details">
+                • Developed a bilingual website for the Latino Cultural Center using NLP techniques, improving accessibility for 1,000+ users annually.<br>
+                • Applied corpus analysis and tokenization to ensure culturally relevant translations.
+            </div>
+            
+            <div class="card-item">Habitat for Humanity – Volunteer</div>
+            <div class="details">
+                • Contributed 50+ hours to constructing and renovating homes for low-income families.<br>
+                • Led fundraising initiatives that generated $2,000 for building projects.
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Research & Publications</h3>
+        <div class="card-content">
+            <div class="card-item">COVID-19 Research Study, Purdue University</div>
+            <div class="details">
+                • Managed participant recruitment for a published study on COVID-19’s impact on student mental health by leveraging targeted outreach strategies and social media engagement, addressing recruitment challenges through personalized follow-ups and incentives to ensure a diverse and representative sample.<br>
+                • Conducted statistical analysis using Qualtrics XM on a sample of 1,000 respondents.<br>
+                • Co-authored "Data for Impact of Returning to Class in COVID on University Students' Health," published in PLOS One (Peer-Reviewed Journal).
+            </div>
+            
+            <div class="card-item">Crusine App – First Place, EcoMake (Sponsored by L3Harris)</div>
+            <div class="details">
+                • Engineered a platform for food redistribution from restaurants to underserved communities.<br>
+                • Developed a user-friendly system that won First Place for its innovative social impact.
+            </div>
+            
+            <div class="card-item">Linguistics ML Algorithm – Personal Project</div>
+            <div class="details">
+                • Built a Naïve Bayes classifier for language identification using the Tateoba linguistic corpus.<br>
+                • Achieved 63% classification accuracy through tokenization, TF-IDF, and frequency distribution analysis.
+            </div>
+        </div>
+    </div>
+</div>
+
     </div>
 </body>
 </html>
