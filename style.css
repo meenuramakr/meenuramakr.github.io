@@ -14,7 +14,7 @@ body {
 /* Dashboard Layout */
 .dashboard {
     display: grid;
-    grid-template-columns: 1.2fr 2.8fr;
+    grid-template-columns: 1fr 3fr;
     gap: 20px;
     width: 90%;
     max-width: 1200px;
@@ -30,31 +30,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.profile-section .profile-icon {
+.profile-icon {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #e6e9db; /* Soft border color */
+    border: 3px solid #e6e9db;
     margin-bottom: 15px;
 }
 
-.profile-section h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #5b755a; /* Muted green */
-}
-
-.profile-section p {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #7a8c74; /* Light gray-green */
-}
-
 .contact-button, .resume-button {
-    background-color: #cfe9b2; /* Soft green */
+    background-color: #cfe9b2;
     color: #333;
     padding: 10px 20px;
     border: none;
@@ -66,77 +54,47 @@ body {
 
 .contact-button:hover, .resume-button:hover {
     transform: scale(1.05);
-    background-color: #b5d99c; /* Slightly darker green */
+    background-color: #b5d99c;
 }
 
-/* Dashboard Boxes */
-.dashboard-boxes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.box {
-    background-color: #fffefa; /* Light cream */
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    justify-content: space-around;
+    background-color: #eaf4e1;
     border-radius: 15px;
-    text-align: center;
-    padding: 20px;
+    padding: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #7a8c74;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: color 0.3s, transform 0.2s;
 }
 
-.box:hover {
-    transform: scale(1.05);
-    background-color: #f7fbe7; /* Pale green hover effect */
-}
-
-.box h2 {
-    margin: 0;
+.tab:hover {
     color: #5b755a; /* Muted green */
+    transform: scale(1.1);
 }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Subtle overlay */
-    justify-content: center;
-    align-items: center;
+.tab i {
+    font-size: 24px;
 }
 
-.modal-content {
-    background-color: #fdf6e3; /* Light cream */
+/* Content Sections */
+.tab-content {
+    background-color: #fdf6e3;
     border-radius: 15px;
     padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    color: #5b755a;
-    text-align: center;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
+.tab-content h2 {
     color: #5b755a; /* Muted green */
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .dashboard {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-
-    .dashboard-boxes {
-        grid-template-columns: 1fr;
-    }
+    margin-bottom: 10px;
 }

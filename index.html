@@ -19,50 +19,46 @@
             </a>
         </div>
 
-        <!-- Dashboard Boxes -->
-        <div class="dashboard-boxes">
-            <div class="box" onclick="openBox('portfolio')">
-                <h2>Portfolio</h2>
-            </div>
-            <div class="box" onclick="openBox('projects')">
-                <h2>Projects</h2>
-            </div>
-            <div class="box" onclick="openBox('visualizations')">
-                <h2>Visualizations</h2>
-            </div>
-            <div class="box" onclick="openBox('side-projects')">
-                <h2>Side Projects</h2>
-            </div>
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button onclick="switchTab('about')" class="tab">
+                <i class="fas fa-user"></i> <!-- About Me Icon -->
+            </button>
+            <button onclick="switchTab('projects')" class="tab">
+                <i class="fas fa-briefcase"></i> <!-- Projects Icon -->
+            </button>
+            <button onclick="switchTab('visualizations')" class="tab">
+                <i class="fas fa-chart-bar"></i> <!-- Visualizations Icon -->
+            </button>
+            <button onclick="switchTab('side-projects')" class="tab">
+                <i class="fas fa-gamepad"></i> <!-- Side Projects Icon -->
+            </button>
         </div>
 
-        <!-- Modal for Box Content -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <div id="modal-body"></div>
-            </div>
+        <!-- Content Sections -->
+        <div id="about" class="tab-content">
+            <h2>About Me</h2>
+            <p>Hi! I'm a Data Science & Linguistics student passionate about connecting people and solving real-world problems through technology.</p>
+        </div>
+        <div id="projects" class="tab-content" style="display: none;">
+            <h2>Projects</h2>
+            <p>Here, I showcase my key projects like Crusine App, NLP algorithms, and more.</p>
+        </div>
+        <div id="visualizations" class="tab-content" style="display: none;">
+            <h2>Linguistics Visualizations</h2>
+            <p>Explore interactive visualizations of linguistic trends!</p>
+        </div>
+        <div id="side-projects" class="tab-content" style="display: none;">
+            <h2>Side Projects</h2>
+            <p>Details of my side projects and experiments.</p>
         </div>
     </div>
 
     <script>
-        function openBox(content) {
-            const modal = document.getElementById('modal');
-            const body = document.getElementById('modal-body');
-            modal.style.display = 'flex';
-
-            if (content === 'portfolio') {
-                body.innerHTML = '<h2>Portfolio</h2><p>My portfolio content...</p>';
-            } else if (content === 'projects') {
-                body.innerHTML = '<h2>Projects</h2><p>My project details...</p>';
-            } else if (content === 'visualizations') {
-                body.innerHTML = '<h2>Visualizations</h2><p>My visualizations...</p>';
-            } else if (content === 'side-projects') {
-                body.innerHTML = '<h2>Side Projects</h2><p>Details of side projects...</p>';
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => (content.style.display = 'none'));
+            document.getElementById(tabId).style.display = 'block';
         }
     </script>
 </body>
