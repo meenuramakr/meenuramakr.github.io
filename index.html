@@ -157,97 +157,54 @@
 
         <!-- Main Content Section -->
         <div class="main-section">
-    <div class="card">
-        <h3>Experience</h3>
-        <div class="card-content">
-            <div class="card-item">Citi Bank – Personal Banking Analyst</div>
-            <div class="details">
-                • Conducted comprehensive analysis of fraud operations across 30+ teams.<br>
-                • Identified inefficiencies in fraud reporting accuracy and escalations by analyzing workflow bottlenecks and data discrepancies, streamlining processes to decrease processing time by 20%.<br>
-                • Designed an interactive analytics dashboard for real-time fraud detection and workflow optimization.<br>
-                • Developed AI-based solutions for email automation and fraud detection, enhancing case resolution efficiency.
-            </div>
-            
-            <div class="card-item">Liberty Mutual – API Intern</div>
-            <div class="details">
-                • Developed a scalable API leveraging AWS infrastructure for secure, high-volume data ingestion and processing, reducing data retrieval time by 30% and improving system reliability for enterprise applications.<br>
-                • Optimized ETL workflows to automate data transformation, reducing manual intervention.<br>
-                • Enhanced front-end accessibility for an internal platform using WCAG 2.1-compliant design principles.
-            </div>
-
-            <div class="card-item">Sandia Flight – Corporate Partner</div>
-            <div class="details">
-                • Conducted usability testing and optimized flight data interfaces to improve accessibility.<br>
-                • Applied Kalman filters and probabilistic models to reconstruct incomplete flight data, improving accuracy by 30%.
-            </div>
-            
-            <div class="card-item">Purdue University – Teaching Assistant</div>
-            <div class="details">
-                • Led weekly office hours, assisting 50+ students with coding projects in R for data visualization.<br>
-                • Provided real-time guidance on Piazza, ensuring clarity in course concepts.
-            </div>
-            
-            <div class="card-item">Purdue Exponent – Editor and Reporter</div>
-            <div class="details">
-                • Authored 100+ articles covering politics, campus events, and social issues.<br>
-                • Edited 600+ articles, ensuring journalistic integrity and factual accuracy.
+            <div class="card">
+                <h3>Playground</h3>
+                <div class="card-content">
+                    <div class="card-item">📝 Text Sentiment Analyzer</div>
+                    <div class="details">
+                        <input type="text" id="sentimentInput" placeholder="Enter text here...">
+                        <button onclick="analyzeSentiment()">Analyze</button>
+                        <p id="sentimentResult"></p>
+                    </div>
+                    
+                    <div class="card-item">🗺️ Linguistic Dialect Mapper</div>
+                    <div class="details">
+                        <input type="text" id="dialectInput" placeholder="Enter a phrase...">
+                        <button onclick="predictDialect()">Predict</button>
+                        <p id="dialectResult"></p>
+                    </div>
+                    
+                    <div class="card-item">📊 Live Data Visualizations</div>
+                    <div class="details">
+                        <button onclick="generateVisualization()">Load Visualization</button>
+                        <div id="visualizationContainer"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="card">
-        <h3>Leadership & Projects</h3>
-        <div class="card-content">
-            <div class="card-item">IEEE Racing Team – Captain</div>
-            <div class="details">
-                • Revived an inactive team, recruited and trained 12 new members, leading them to national competitions.<br>
-                • Secured $5,000 in funding through sponsorships and partnerships.
-            </div>
-            
-            <div class="card-item">IEEE Computer Society – Head of Machine Learning Initiative</div>
-            <div class="details">
-                • Organized 20+ workshops on machine learning for over 50 participants.<br>
-                • Mentored students in building a recommendation system for campus resources.
-            </div>
-            
-            <div class="card-item">Hack the Future – Software Developer</div>
-            <div class="details">
-                • Developed a bilingual website for the Latino Cultural Center using NLP techniques, improving accessibility for 1,000+ users annually.<br>
-                • Applied corpus analysis and tokenization to ensure culturally relevant translations.
-            </div>
-            
-            <div class="card-item">Habitat for Humanity – Volunteer</div>
-            <div class="details">
-                • Contributed 50+ hours to constructing and renovating homes for low-income families.<br>
-                • Led fundraising initiatives that generated $2,000 for building projects.
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Research & Publications</h3>
-        <div class="card-content">
-            <div class="card-item">COVID-19 Research Study, Purdue University</div>
-            <div class="details">
-                • Managed participant recruitment for a published study on COVID-19’s impact on student mental health by leveraging targeted outreach strategies and social media engagement, addressing recruitment challenges through personalized follow-ups and incentives to ensure a diverse and representative sample.<br>
-                • Conducted statistical analysis using Qualtrics XM on a sample of 1,000 respondents.<br>
-                • Co-authored "Data for Impact of Returning to Class in COVID on University Students' Health," published in PLOS One (Peer-Reviewed Journal).
-            </div>
-            
-            <div class="card-item">Crusine App – First Place, EcoMake (Sponsored by L3Harris)</div>
-            <div class="details">
-                • Engineered a platform for food redistribution from restaurants to underserved communities.<br>
-                • Developed a user-friendly system that won First Place for its innovative social impact.
-            </div>
-            
-            <div class="card-item">Linguistics ML Algorithm – Personal Project</div>
-            <div class="details">
-                • Built a Naïve Bayes classifier for language identification using the Tateoba linguistic corpus.<br>
-                • Achieved 63% classification accuracy through tokenization, TF-IDF, and frequency distribution analysis.
-            </div>
-        </div>
-    </div>
-</div>
+        
+        <script>
+            function analyzeSentiment() {
+                let text = document.getElementById('sentimentInput').value;
+                let result = text.includes('good') ? 'Positive' : text.includes('bad') ? 'Negative' : 'Neutral';
+                document.getElementById('sentimentResult').innerText = `Sentiment: ${result}`;
+            }
+        
+            function predictDialect() {
+                let text = document.getElementById('dialectInput').value;
+                let dialect = text.includes('y’all') ? 'Southern US' : text.includes('mate') ? 'Australian' : 'Unknown';
+                document.getElementById('dialectResult').innerText = `Predicted Dialect: ${dialect}`;
+            }
+        
+            function generateVisualization() {
+                let container = document.getElementById('visualizationContainer');
+                container.innerHTML = '<p>Loading data visualization...</p>';
+                setTimeout(() => {
+                    container.innerHTML = '<p>📈 Data trends loaded! (Placeholder for future visualization)</p>';
+                }, 1000);
+            }
+        </script>
+        
 
     </div>
 </body>
