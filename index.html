@@ -158,57 +158,42 @@
                     </ul>
                 </div>
             </div>
+
+            <a href="/Users/sparklezzz/Desktop/job applications/MeenuResume2025.pdf" download>
+                <button class="download-resume">Download My Resume</button>
+            </a>
         </div>
 
         <!-- Main Content Section -->
         <div class="main-section">
-            <div class="card">
-                <h3>Playground</h3>
-                <div class="card-content">
-                    <div class="card-item">📝 Text Sentiment Analyzer</div>
-                    <div class="details">
-                        <input type="text" id="sentimentInput" placeholder="Enter text here...">
-                        <button onclick="analyzeSentiment()">Analyze</button>
-                        <p id="sentimentResult"></p>
-                    </div>
-                    
-                    <div class="card-item">🗺️ Linguistic Dialect Mapper</div>
-                    <div class="details">
-                        <input type="text" id="dialectInput" placeholder="Enter a phrase...">
-                        <button onclick="predictDialect()">Predict</button>
-                        <p id="dialectResult"></p>
-                    </div>
-                    
-                    <div class="card-item">📊 Live Data Visualizations</div>
-                    <div class="details">
-                        <button onclick="generateVisualization()">Load Visualization</button>
-                        <div id="visualizationContainer"></div>
-                    </div>
-                </div>
+            <div class="tabs">
+                <button onclick="showTab('about')">About Me</button>
+                <button onclick="showTab('projects')">Projects</button>
+                <button onclick="showTab('visualizations')">Linguistics Visualizations</button>
+            </div>
+            <div id="about" class="tab-content">
+                <h3>About Me</h3>
+                <p>Hi! I'm a Data Science & Linguistics student passionate about connecting people and solving real-world problems through technology.</p>
+            </div>
+            <div id="projects" class="tab-content" style="display:none;">
+                <h3>Projects</h3>
+                <p>Here, I showcase my key projects like Crusine App, NLP algorithms, and more.</p>
+            </div>
+            <div id="visualizations" class="tab-content" style="display:none;">
+                <h3>Linguistics Live Data</h3>
+                <p>Explore interactive visualizations of linguistic trends!</p>
             </div>
         </div>
-        
+
         <script>
-            function analyzeSentiment() {
-                let text = document.getElementById('sentimentInput').value;
-                let result = text.includes('good') ? 'Positive' : text.includes('bad') ? 'Negative' : 'Neutral';
-                document.getElementById('sentimentResult').innerText = `Sentiment: ${result}`;
-            }
-        
-            function predictDialect() {
-                let text = document.getElementById('dialectInput').value;
-                let dialect = text.includes('y’all') ? 'Southern US' : text.includes('mate') ? 'Australian' : 'Unknown';
-                document.getElementById('dialectResult').innerText = `Predicted Dialect: ${dialect}`;
-            }
-        
-            function generateVisualization() {
-                let container = document.getElementById('visualizationContainer');
-                container.innerHTML = '<p>Loading data visualization...</p>';
-                setTimeout(() => {
-                    container.innerHTML = '<p>📈 Data trends loaded! (Placeholder for future visualization)</p>';
-                }, 1000);
+            function showTab(tabId) {
+                const tabs = document.querySelectorAll('.tab-content');
+                tabs.forEach(tab => tab.style.display = 'none');
+                document.getElementById(tabId).style.display = 'block';
             }
         </script>
+        
+        
         
 
     </div>

@@ -364,6 +364,41 @@ li .description {
 
 /*timeline ends*/
 
+.tabs {
+    margin-bottom: 15px;
+}
+.tabs button {
+    background-color: #ffdecc;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.tabs button:hover {
+    background-color: #ffc5a1;
+}
+.tab-content h3 {
+    color: #4A90E2;
+    margin-bottom: 10px;
+}
+
+.download-resume {
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+.download-resume:hover {
+    background-color: #3b7dc0;
+}
 
 
 /* Media queries*/
