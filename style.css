@@ -2,13 +2,42 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: #2C2A4A;
+    background: #2C2A4A; /* Base background */
     color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
+}
+
+/* Landing Page */
+.landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3A3B64;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Retro Animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
 }
 
 /* Dashboard Layout */
@@ -20,18 +49,16 @@ body {
     width: 90%;
     max-width: 1200px;
     height: 90vh;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #363566, #1E1D38);
+    background: #3B3A5A;
 }
 
 /* Tab Navigation */
 .tab-navigation {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 10px;
-    background: #3B3A5A;
+    justify-content: space-around;
+    background: #393A5A;
     border-radius: 10px;
+    padding: 10px;
 }
 
 .tab {
@@ -44,58 +71,14 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.tab:hover {
-    background-color: #6F70C7;
-}
-
 .tab.active {
     background-color: #8B8DD9;
 }
 
 .content-section {
-    display: none; /* Hidden by default */
-    background: #3B3A5A;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: inset 0 0 5px #1A1932;
+    display: none;
 }
 
 .content-section.active {
-    display: block; /* Show active section */
-}
-
-
-/* Project Icons */
-.projects-icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.projects-icons img {
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.projects-icons img:hover {
-    transform: scale(1.1);
-}
-
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(0.95);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
+    display: block;
 }

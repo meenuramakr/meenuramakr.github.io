@@ -90,32 +90,27 @@
 
     <script>
         function transitionToDashboard() {
-    const landingPage = document.getElementById('landing-page');
-    const dashboard = document.getElementById('dashboard');
-
-    // Add retro fade-out effect
-    landingPage.style.animation = 'fadeOut 1s ease-in-out';
-    
-    // Remove landing page and show the dashboard after animation
-    setTimeout(() => {
-        landingPage.classList.add('hidden');
-        dashboard.classList.remove('hidden');
-    }, 1000); // Matches the animation duration
-}
-
+            const landingPage = document.getElementById('landing-page');
+            const dashboard = document.getElementById('dashboard');
+            
+            landingPage.style.animation = 'fadeOut 1s ease-in-out';
+            
+            setTimeout(() => {
+                landingPage.classList.add('hidden');
+                dashboard.classList.remove('hidden');
+            }, 1000);
+        }
 
         function switchTab(tabId) {
-    const tabs = document.querySelectorAll('.tab');
-    const sections = document.querySelectorAll('.content-section');
+            const tabs = document.querySelectorAll('.tab');
+            const sections = document.querySelectorAll('.content-section');
 
-    // Remove 'active' class from all tabs and hide all sections
-    tabs.forEach(tab => tab.classList.remove('active'));
-    sections.forEach(section => section.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            sections.forEach(section => section.classList.remove('active'));
 
-    // Add 'active' class to the clicked tab and show the corresponding section
-    document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
-    document.getElementById(tabId).classList.add('active');
-}
+            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
     </script>
 </body>
 </html>
