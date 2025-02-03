@@ -82,3 +82,58 @@ body {
 .content-section.active {
     display: block;
 }
+
+
+/* Projects Section */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.project-item {
+    text-align: center;
+    background: #3A3B64;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px; /* Ensures items are consistent in size */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project-item img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.project-item img:hover {
+    transform: scale(1.1);
+}
+
+.project-item h3 {
+    color: #F2F2F2;
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    color: #D1D1E0;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.subtext {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #D1D1E0;
+}
