@@ -83,7 +83,6 @@ body {
     display: block;
 }
 
-
 /* Projects Section */
 .projects-grid {
     display: flex;
@@ -137,7 +136,6 @@ body {
     font-size: 16px;
     color: #D1D1E0;
 }
-
 
 /* Info Box Styling */
 .landing-console {
@@ -223,31 +221,27 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: #3A3B64;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    width: 100%; /* Ensures it fits within the profile section */
-    animation: popIn 1s ease-out; /* Animation for avatar appearance */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: popIn 1s ease-out;
+    width: 100%; /* Fit the profile section */
 }
 
-/* Character Box Styling */
 .character-box {
     background: #2C2A4A;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 15px;
     margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .character-avatar {
     width: 150px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -255,17 +249,28 @@ body {
     transform: scale(1.1);
 }
 
-/* Character Stats Styling */
-.character-stats {
+.character-profile h1 {
+    font-size: 20px;
+    margin: 10px 0;
     color: #FFFFFF;
+}
+
+.character-profile p {
+    font-size: 14px;
+    color: #F2F2F2;
+    margin-bottom: 20px;
+}
+
+/* Character Stats */
+.character-stats {
+    width: 100%;
     text-align: center;
 }
 
 .character-stats h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+    font-size: 16px;
     color: #F2A71B;
+    margin-bottom: 10px;
 }
 
 .character-stats ul {
@@ -276,17 +281,6 @@ body {
 
 .character-stats li {
     font-size: 14px;
+    color: #D1D1E0;
     margin: 5px 0;
-}
-
-/* Pop-In Animation */
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
 }

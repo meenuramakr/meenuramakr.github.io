@@ -31,18 +31,12 @@
     <div id="dashboard" class="dashboard hidden">
         <!-- Profile Section -->
         <div class="profile-section">
-            <div class="tv-screen">
-                <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-icon">
-            </div>
-            <h1>Meenakshi Ramakrishnan</h1>
-            <p>Data Scientist | Linguist | Innovator</p>
-            <button class="contact-button">Contact Me</button>
-            
-            <!-- Character Profile Section -->
             <div class="character-profile">
                 <div class="character-box">
-                    <img src="myavatar.png" alt="Meenakshi Avatar" class="character-avatar">
+                    <img src="your-avatar.png" alt="Meenakshi Avatar" class="character-avatar">
                 </div>
+                <h1>Meenakshi Ramakrishnan</h1>
+                <p>Data Scientist | Linguist | Innovator</p>
                 <div class="character-stats">
                     <h3>Character Stats</h3>
                     <ul>
@@ -53,8 +47,10 @@
                         <li><strong>Bonus:</strong> Multilingual Fluency</li>
                     </ul>
                 </div>
+                <button class="contact-button">Contact Me</button>
             </div>
         </div>
+        
 
         <!-- Main Content Section -->
         <div class="main-content">
@@ -120,23 +116,20 @@
         function transitionToDashboard() {
             const landingPage = document.getElementById('landing-page');
             const dashboard = document.getElementById('dashboard');
+            const characterProfile = document.querySelector('.character-profile');
             
             landingPage.style.animation = 'fadeOut 1s ease-in-out';
             
             setTimeout(() => {
                 landingPage.classList.add('hidden');
                 dashboard.classList.remove('hidden');
+                
+                // Ensure character profile is visible only after transitioning
+                characterProfile.style.opacity = 1;
+                characterProfile.style.transform = 'scale(1)';
             }, 1000);
-    
-            // Trigger the character pop-in effect
-            setTimeout(() => {
-                const characterProfile = document.querySelector('.character-profile');
-                if (characterProfile) {
-                    characterProfile.style.opacity = 1;
-                    characterProfile.style.transform = 'scale(1)';
-                }
-            }, 1100);
         }
+    
     
         function switchTab(tabId) {
             const tabs = document.querySelectorAll('.tab');
