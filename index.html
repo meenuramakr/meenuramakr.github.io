@@ -11,9 +11,19 @@
     <!-- Landing Page -->
     <div id="landing-page" class="landing-page">
         <div class="landing-console">
-            <h1>I'm Meenakshi</h1>
-            <p>Data Scientist | Linguist | Problem Solver</p>
-            <button class="power-button" onclick="transitionToDashboard()">Click to Start</button>
+            <div class="profile-info">
+                <h1>Hi, I’m Meenakshi</h1>
+                <p>I go by Meenu. I’m a Purdue student passionate about connecting data, language, and innovation to solve real-world challenges.</p>
+                <div class="pronunciation">
+                    <button class="audio-button" onclick="playPronunciation()">
+                        <img src="speaker-icon.png" alt="Pronounce Meenu">
+                    </button>
+                    <span>Click to hear how to pronounce my name</span>
+                </div>
+            </div>
+            <button class="power-button" onclick="transitionToDashboard()">
+                <span class="click-bubble">Click</span>
+            </button>
         </div>
     </div>
 
@@ -46,16 +56,17 @@
             <!-- Projects Section -->
             <div id="projects" class="content-section">
                 <h2>Projects</h2>
+                <p class="subtext">Click on the icons below to view the projects on GitHub.</p>
                 <div class="projects-icons">
                     <a href="https://github.com/bmohanda/EcoMake-2020" target="_blank">
                         <img src="crusine.jpg" alt="Crusine App">
                     </a>
-                    <a href="https://github.com/meenuramakr/basic-dataset" target="_blank">
-                        <img src="lingml.jpg" alt="Linguistics ML Algorithm">
-                    </a>
-                    <a href="https://www.lcwelafayette.com/" target="_blank">
-                        <img src="lcwe.png" alt="Bilingual NLP Website">
-                    </a>
+                    <div class="project-description">
+                        <h3>Crusine App</h3>
+                        <p><strong>Overview:</strong> Created a platform to redistribute surplus food to underserved communities.</p>
+                        <p><strong>Tech Stack:</strong> Python (Flask), React, AWS (S3, Lambda).</p>
+                        <p><strong>Highlight:</strong> Won First Place at EcoMake for impactful innovation.</p>
+                    </div>
                 </div>
             </div>
 
@@ -67,7 +78,13 @@
         </div>
     </div>
 
+    <audio id="name-audio" src="meenakshi-pronunciation.mp3"></audio>
     <script>
+        function playPronunciation() {
+            const audio = document.getElementById('name-audio');
+            audio.play();
+        }
+
         function transitionToDashboard() {
             const landingPage = document.getElementById('landing-page');
             const dashboard = document.getElementById('dashboard');
@@ -78,7 +95,7 @@
             setTimeout(() => {
                 landingPage.classList.add('hidden');
                 dashboard.classList.remove('hidden');
-            }, 1000); // Matches the transition duration
+            }, 1000);
         }
 
         function switchTab(tabId) {
