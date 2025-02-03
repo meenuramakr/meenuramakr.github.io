@@ -1,74 +1,39 @@
-/* Landing Page */
-.landing-page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #4B4E7C url('dots.png') repeat;
+/* General Layout */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #2C2A4A;
+    color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
-    transition: transform 1s ease-in-out;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.landing-console {
-    background: #393950;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+/* Consistent Theme */
+.landing-page, .dashboard {
+    background: #3A3B64 url('dots.png') repeat;
+}
+
+/* Landing Page */
+.landing-page {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Projects Section */
+.projects-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-description {
     text-align: center;
-    max-width: 400px;
-}
-
-.landing-console h1 {
-    font-size: 28px;
-    color: #FFFFFF;
-    margin-bottom: 10px;
-}
-
-.landing-console p {
-    font-size: 16px;
-    color: #D1D1E0;
-    margin-bottom: 20px;
-}
-
-.pronunciation {
-    margin-bottom: 20px;
-}
-
-.audio-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.power-button {
-    background-color: #6F70C7;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    padding: 15px 30px;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-}
-
-.click-bubble {
-    position: absolute;
-    top: -25px;
-    right: 20px;
-    background: #FFF;
-    color: #000;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    pointer-events: none;
-}
-
-/* Hidden Class */
-.hidden {
-    display: none;
+    margin-top: 10px;
 }
