@@ -11,29 +11,62 @@ body {
     overflow: hidden;
 }
 
-/* Consistent Theme */
-.landing-page, .dashboard {
-    background: #3A3B64 url('dots.png') repeat;
+/* Dashboard Layout */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #363566, #1E1D38);
 }
 
-/* Landing Page */
-.landing-page {
-    position: fixed;
-    width: 100%;
-    height: 100%;
+/* Tab Navigation */
+.tab-navigation {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #3B3A5A;
+    border-radius: 10px;
 }
 
-/* Projects Section */
+.tab {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+    background-color: #6F70C7;
+}
+
+.tab.active {
+    background-color: #8B8DD9;
+}
+
+/* Project Icons */
 .projects-icons {
     display: flex;
-    gap: 20px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.project-description {
-    text-align: center;
-    margin-top: 10px;
+.projects-icons img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.projects-icons img:hover {
+    transform: scale(1.1);
 }

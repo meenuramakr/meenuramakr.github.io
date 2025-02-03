@@ -11,19 +11,9 @@
     <!-- Landing Page -->
     <div id="landing-page" class="landing-page">
         <div class="landing-console">
-            <div class="profile-info">
-                <h1>Hi, I’m Meenakshi</h1>
-                <p>I go by Meenu. I’m a Purdue student passionate about connecting data, language, and innovation to solve real-world challenges.</p>
-                <div class="pronunciation">
-                    <button class="audio-button" onclick="playPronunciation()">
-                        <img src="speaker-icon.png" alt="Pronounce Meenu">
-                    </button>
-                    <span>Click to hear how to pronounce my name</span>
-                </div>
-            </div>
-            <button class="power-button" onclick="transitionToDashboard()">
-                <span class="click-bubble">Click</span>
-            </button>
+            <h1>Hi, I’m Meenakshi</h1>
+            <p>I go by Meenu. I’m a Purdue student passionate about connecting data, language, and innovation to solve real-world challenges.</p>
+            <button class="power-button" onclick="transitionToDashboard()">Click to Start</button>
         </div>
     </div>
 
@@ -98,13 +88,7 @@
         </div>
     </div>
 
-    <audio id="name-audio" src="meenakshi-pronunciation.mp3"></audio>
     <script>
-        function playPronunciation() {
-            const audio = document.getElementById('name-audio');
-            audio.play();
-        }
-
         function transitionToDashboard() {
             const landingPage = document.getElementById('landing-page');
             const dashboard = document.getElementById('dashboard');
