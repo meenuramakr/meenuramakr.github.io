@@ -11,11 +11,9 @@
     <!-- Landing Page -->
     <div id="landing-page" class="landing-page">
         <div class="landing-console">
-            <div class="profile-display">
-                <h1>Meenakshi Ramakrishnan</h1>
-                <p>A data scientist and linguist passionate about solving real-world challenges through innovation.</p>
-            </div>
-            <button class="power-button" onclick="transitionToDashboard()">Click to Enter</button>
+            <h1>I'm Meenakshi</h1>
+            <p>Data Scientist | Linguist | Problem Solver</p>
+            <button class="power-button" onclick="transitionToDashboard()">Click to Start</button>
         </div>
     </div>
 
@@ -33,7 +31,6 @@
 
         <!-- Main Content Section -->
         <div class="main-content">
-            <!-- Tab Navigation -->
             <div class="tab-navigation">
                 <button class="tab active" data-tab="about" onclick="switchTab('about')">About Me</button>
                 <button class="tab" data-tab="projects" onclick="switchTab('projects')">Projects</button>
@@ -44,31 +41,11 @@
             <div id="about" class="content-section active">
                 <h2>About Me</h2>
                 <p>Hi, I'm Meenakshi, a passionate data scientist and linguist with a knack for solving real-world challenges through technology and creativity. Currently pursuing my Bachelor of Science in Statistics and Linguistics at Purdue University, I thrive at the intersection of data and language.</p>
-                <h3>My Expertise</h3>
-                <div class="skills-graphic">
-                    <div class="skill-item">
-                        <h3>Python</h3>
-                        <p>Expert in scripting, automation, and data analysis.</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>Machine Learning</h3>
-                        <p>Experience with TensorFlow, scikit-learn, and recommendation systems.</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>Data Visualization</h3>
-                        <p>Skilled in Tableau, matplotlib, and creating interactive dashboards.</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>NLP</h3>
-                        <p>Specialized in language modeling, TF-IDF, and text classification.</p>
-                    </div>
-                </div>
             </div>
 
             <!-- Projects Section -->
             <div id="projects" class="content-section">
                 <h2>Projects</h2>
-                <p class="subtext">Click on the icons below to view the projects on GitHub.</p>
                 <div class="projects-icons">
                     <a href="https://github.com/bmohanda/EcoMake-2020" target="_blank">
                         <img src="crusine.jpg" alt="Crusine App">
@@ -92,8 +69,16 @@
 
     <script>
         function transitionToDashboard() {
-            document.getElementById('landing-page').classList.add('hidden');
-            document.getElementById('dashboard').classList.remove('hidden');
+            const landingPage = document.getElementById('landing-page');
+            const dashboard = document.getElementById('dashboard');
+            
+            landingPage.style.transform = 'translateY(-100%)';
+            landingPage.style.transition = 'transform 1s ease-in-out';
+
+            setTimeout(() => {
+                landingPage.classList.add('hidden');
+                dashboard.classList.remove('hidden');
+            }, 1000); // Matches the transition duration
         }
 
         function switchTab(tabId) {
