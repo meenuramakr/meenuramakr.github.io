@@ -1,63 +1,99 @@
-/* General Styles */
+/* General Layout */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: #2D3A4B;
-    color: #FFFFFF;
+    background: #f6f2e9;
+    color: #2a2a2a;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     height: 100vh;
     padding: 20px;
-    overflow-y: auto;
 }
 
-/* Main Dashboard */
+/* Dashboard */
 .dashboard {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    gap: 20px;
-    width: 80%;
-    max-width: 1400px;
-    height: 90vh;
-    background: #34495E;
-    border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: auto;
 }
 
 /* Profile Section */
 .profile-section {
-    background: #3B4A62;
+    background: #d3e7cb;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    border-radius: 15px;
 }
 
 .profile-icon {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #EC7063;
+    border: 3px solid #b8d8b8;
 }
 
 h1 {
-    color: #EC7063;
-    margin: 10px 0;
+    color: #4b784d;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 .contact-button {
-    background-color: #EC7063;
+    background-color: #4b784d;
     color: white;
-    padding: 10px 20px;
     border: none;
     border-radius: 15px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Remaining Sections Use Updated Palette */
+.contact-button:hover {
+    background-color: #2e5932;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    justify-content: space-around;
+    background: #e3f3e8;
+    padding: 10px 0;
+    border-bottom: 2px solid #d3e7cb;
+}
+
+.tab {
+    font-size: 14px;
+    color: #4b784d;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-transform: uppercase;
+}
+
+.tab.active {
+    color: #ffffff;
+    background: #4b784d;
+    border-radius: 15px;
+}
+
+/* Content Section */
+.content-section {
+    display: none;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.content-section.active {
+    display: block;
+}
