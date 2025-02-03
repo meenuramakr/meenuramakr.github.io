@@ -1,14 +1,13 @@
 /* General Reset */
 body {
     margin: 0;
-    font-family: 'Cambria', serif;
-    background: linear-gradient(135deg, #eaf4e1, #f7fbe7); /* Subtle pastel green background */
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e2a38, #2c3e50); /* Corporate blue gradient */
+    color: #f5f5f5;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
 }
 
 /* Dashboard Layout */
@@ -20,33 +19,33 @@ body {
     max-width: 1200px;
     height: 90vh;
     border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background: #1e2a38;
 }
 
 /* Profile Section */
 .profile-section {
-    background-color: #fdf6e3; /* Light cream */
+    background-color: #243447; /* Dark blue */
     border-radius: 15px;
     padding: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .profile-icon {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #e6e9db;
+    border: 3px solid #6c7a89;
     margin-bottom: 15px;
 }
 
 .contact-button, .resume-button {
-    background-color: #cfe9b2;
-    color: #333;
+    background-color: #1abc9c;
+    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 15px;
@@ -57,24 +56,25 @@ body {
 
 .contact-button:hover, .resume-button:hover {
     transform: scale(1.05);
-    background-color: #b5d99c;
+    background-color: #16a085;
 }
 
 /* Tab Navigation */
 .tab-navigation {
     display: flex;
-    justify-content: space-around;
-    background-color: #eaf4e1;
+    justify-content: space-between;
+    background-color: #2c3e50; /* Dark Blue */
     border-radius: 15px;
     padding: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .tab {
     background: none;
     border: none;
-    font-size: 18px;
-    color: #7a8c74;
+    font-size: 16px;
+    font-weight: bold;
+    color: #d5d8dc;
     cursor: pointer;
     transition: color 0.3s, transform 0.2s;
     display: flex;
@@ -83,59 +83,59 @@ body {
 }
 
 .tab.active {
-    color: #4A90E2; /* Highlight active tab */
+    color: #1abc9c; /* Corporate Green */
 }
 
 .tab i {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .tab:hover {
-    color: #5b755a;
+    color: #16a085;
     transform: scale(1.1);
 }
 
 /* Content Section */
-.tab-content {
-    background-color: #fdf6e3; /* Light cream */
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    display: none; /* Hidden by default */
-}
-
-.tab-content.active {
-    display: block; /* Show active content */
-}
-
 .content-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh; /* Ensures it fits within screen height */
+    justify-content: flex-start;
+    height: 100vh;
     padding: 20px;
-    overflow: hidden; /* Prevents unwanted scrolling */
+    overflow: hidden;
 }
 
+/* Tab Content */
+.tab-content {
+    background-color: #2c3e50;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    width: 100%;
+}
+
+.tab-content.active {
+    display: block;
+}
 
 /* PROJECTS SECTION */
 .projects-container {
     display: flex;
-    justify-content: center; /* Centers items in one row */
-    gap: 20px;
+    justify-content: space-between; /* Evenly distributes projects */
+    flex-wrap: nowrap;
     padding: 20px;
-    flex-wrap: nowrap; /* Prevents wrapping */
     max-width: 100%;
 }
 
 .project {
     text-align: center;
     width: 300px;
-    padding: 15px;
-    background: #fdf6e3; /* Light cream */
+    padding: 20px;
+    background: #34495e; /* Dark Gray-Blue */
     border-radius: 15px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -144,9 +144,21 @@ body {
     height: 100px;
     margin-bottom: 10px;
     transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .project:hover {
     transform: scale(1.05);
 }
 
+.project a:hover img {
+    transform: scale(1.1);
+}
+
+/* Subtle Call-to-Action (CTA) for Clicking Icons */
+.project p.click-info {
+    font-size: 14px;
+    color: #aab7c4; /* Subtle gray text */
+    margin-top: 10px;
+    font-style: italic;
+}
