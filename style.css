@@ -2,12 +2,13 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #244855, #90AEAD);
-    color: #FBE9D0;
+    background: #2D3A4B;
+    color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     height: 100vh;
+    padding: 20px;
     overflow-y: auto;
 }
 
@@ -16,18 +17,19 @@ body {
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 20px;
-    width: 90%;
+    width: 80%;
     max-width: 1400px;
     height: 90vh;
-    background: #244855;
+    background: #34495E;
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    margin: auto;
 }
 
 /* Profile Section */
 .profile-section {
-    background: #874F41;
+    background: #3B4A62;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -40,16 +42,16 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #FBE9D0;
+    border: 3px solid #EC7063;
 }
 
 h1 {
-    font-family: 'Press Start 2P', sans-serif;
-    color: #FBE9D0;
+    color: #EC7063;
+    margin: 10px 0;
 }
 
 .contact-button {
-    background-color: #E64833;
+    background-color: #EC7063;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -58,53 +60,4 @@ h1 {
     transition: background-color 0.3s;
 }
 
-.contact-button:hover {
-    background-color: #FBE9D0;
-    color: #E64833;
-}
-
-/* Main Content Section */
-.main-content {
-    background: #90AEAD;
-    padding: 20px;
-    border-radius: 15px;
-    overflow-y: auto;
-}
-
-/* Tab Navigation */
-.tab-navigation {
-    display: flex;
-    justify-content: space-around;
-    background: #244855;
-    padding: 10px;
-    border-bottom: 3px solid #FBE9D0;
-}
-
-.tab {
-    font-size: 14px;
-    color: #FBE9D0;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 10px 20px;
-    background: none;
-    border: none;
-}
-
-.tab.active {
-    color: #E64833;
-    border-bottom: 3px solid #E64833;
-}
-
-/* Content Sections */
-.content-section {
-    display: none;
-    background: #FBE9D0;
-    border-radius: 15px;
-    padding: 20px;
-}
-
-.content-section.active {
-    display: block;
-    height: calc(100% - 50px);
-    overflow-y: auto;
-}
+/* Remaining Sections Use Updated Palette */
