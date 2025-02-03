@@ -8,7 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="dashboard">
+    <!-- Landing Page -->
+    <div id="landing-page" class="landing-page">
+        <div class="landing-console">
+            <div class="profile-display">
+                <h1>Meenakshi Ramakrishnan</h1>
+                <p>A data scientist and linguist passionate about solving real-world challenges through innovation.</p>
+            </div>
+            <button class="power-button" onclick="transitionToDashboard()">Click to Enter</button>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
         <!-- Profile Section -->
         <div class="profile-section">
             <div class="tv-screen">
@@ -79,6 +91,11 @@
     </div>
 
     <script>
+        function transitionToDashboard() {
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+        }
+
         function switchTab(tabId) {
             const tabs = document.querySelectorAll('.tab');
             const sections = document.querySelectorAll('.content-section');
