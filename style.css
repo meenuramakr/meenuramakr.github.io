@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -7,9 +8,10 @@ body {
     justify-content: center;
     align-items: flex-start;
     height: 100vh;
-    overflow: auto;
+    overflow-y: auto;
 }
 
+/* Main Container */
 .dashboard {
     width: 90%;
     max-width: 1200px;
@@ -20,6 +22,7 @@ body {
     overflow: hidden;
 }
 
+/* Tab Navigation */
 .tab-navigation {
     display: flex;
     justify-content: space-around;
@@ -48,15 +51,18 @@ body {
     border-bottom: 3px solid #faff70;
 }
 
+/* Content Sections */
 .content-section {
     display: none;
     padding: 20px;
     background: #2b2b5b;
     border-radius: 15px;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .content-section.active {
     display: block;
+    opacity: 1;
 }
 
 h2 {
@@ -66,10 +72,9 @@ h2 {
 /* About Me Section */
 .skills-graphic {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
     margin-top: 20px;
 }
 
@@ -81,6 +86,11 @@ h2 {
     width: 45%;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
 }
 
 .skill-item h3 {
@@ -103,6 +113,11 @@ h2 {
     width: 300px;
     text-align: center;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.project:hover {
+    transform: scale(1.05);
 }
 
 .project img {
