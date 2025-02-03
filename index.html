@@ -3,110 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meenakshi Ramakrishnan | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <title>Meenakshi Ramakrishnan | Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        function switchTab(tabId) {
-            const tabs = document.querySelectorAll('.tab');
-            const contents = document.querySelectorAll('.tab-content');
-
-            // Remove active class from all tabs and hide content
-            tabs.forEach(tab => tab.classList.remove('active'));
-            contents.forEach(content => content.classList.remove('active'));
-
-            // Add active class to clicked tab and show corresponding content
-            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
-            document.getElementById(tabId).classList.add('active');
-        }
-
-        // Load the default tab
-        document.addEventListener('DOMContentLoaded', () => {
-            switchTab('about');
-        });
-    </script>
 </head>
 <body>
     <div class="dashboard">
         <!-- Profile Section -->
         <div class="profile-section">
-            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-icon">
+            <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-icon">
             <h1>Meenakshi Ramakrishnan</h1>
             <p>Data Science & Linguistics Student</p>
             <button class="contact-button">Contact Me</button>
-            <a href="resume.pdf" download>
-                <button class="resume-button">Download Resume</button>
-            </a>
         </div>
 
-        <!-- Main Content Section -->
-        <div class="content-section">
-            <!-- Tab Navigation (Top of Right Section) -->
-            <div class="tab-navigation">
-                <button class="tab active" data-tab="about" onclick="switchTab('about')">
-                    <i class="fas fa-user"></i> About Me
-                </button>
-                <button class="tab" data-tab="projects" onclick="switchTab('projects')">
-                    <i class="fas fa-briefcase"></i> Projects
-                </button>
-                <button class="tab" data-tab="visualizations" onclick="switchTab('visualizations')">
-                    <i class="fas fa-chart-bar"></i> Visualizations
-                </button>
-                <button class="tab" data-tab="side-projects" onclick="switchTab('side-projects')">
-                    <i class="fas fa-gamepad"></i> Side Projects
-                </button>
-            </div>
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab active" data-tab="about" onclick="switchTab('about')">About Me</button>
+            <button class="tab" data-tab="projects" onclick="switchTab('projects')">Projects</button>
+            <button class="tab" data-tab="visualizations" onclick="switchTab('visualizations')">Visualizations</button>
+        </div>
 
-            <!-- Tab Content (Below Tabs) -->
-            <div id="about" class="tab-content active">
-                <h2>About Me</h2>
-                <p>Hi! I'm a Data Science & Linguistics student passionate about connecting people and solving real-world problems through technology.</p>
-            </div>
-            <div id="projects" class="tab-content">
-                <h2>Projects</h2>
-                <p style="color: #aab7c4; font-style: italic;">Click on the project icons to view the GitHub repositories or live demos.</p>
-            
-                <div class="projects-container">
-                    <div class="project">
-                        <a href="https://github.com/bmohanda/EcoMake-2020" target="_blank">
-                            <img src="crusine.jpg" alt="Crusine App">
-                        </a>
-                        <h3>Crusine App</h3>
-                        <p><strong>Problem:</strong> Food waste from restaurants while communities face food insecurity.</p>
-                        <p><strong>Approach:</strong> Engineered a platform for food redistribution using Python, Java, HTML, and CSS.</p>
-                        <p><strong>Challenges & Results:</strong> Won <strong>First Place</strong> at EcoMake, reducing food waste.</p>
-                        <p class="click-info">Click the icon to visit the GitHub repository.</p>
-                    </div>
-            
-                    <div class="project">
-                        <a href="https://github.com/meenuramakr/basic-dataset" target="_blank">
-                            <img src="lingml.jpg" alt="Linguistics ML">
-                        </a>
-                        <h3>Linguistics ML Algorithm</h3>
-                        <p><strong>Problem:</strong> Efficiently identifying language patterns in large text datasets.</p>
-                        <p><strong>Approach:</strong> Built a Naïve Bayes classifier using the Tateoba corpus.</p>
-                        <p><strong>Challenges & Results:</strong> Achieved <strong>63% accuracy</strong>, using tokenization and TF-IDF analysis.</p>
-                        <p class="click-info">Click the icon to explore the project.</p>
-                    </div>
-            
-                    <div class="project">
-                        <a href="https://www.lcwelafayette.com/" target="_blank">
-                            <img src="lcwe.png" alt="Bilingual NLP">
-                        </a>
-                        <h3>Bilingual NLP Website</h3>
-                        <p><strong>Problem:</strong> Accessibility challenges for non-English speakers in cultural spaces.</p>
-                        <p><strong>Approach:</strong> Developed an NLP-driven translation system for the Lafayette Latino Cultural Center.</p>
-                        <p><strong>Challenges & Results:</strong> Improved accessibility for <strong>1,000+ users annually</strong>.</p>
-                        <p class="click-info">Click the icon for the live website.</p>
-                    </div>
+        <!-- About Me Section -->
+        <div id="about" class="content-section active">
+            <h2>About Me</h2>
+            <p>I am a Data Science and Linguistics student at Purdue University with expertise in Python, R, SQL, and statistical modeling. I specialize in machine learning, NLP, and data visualization, with a passion for solving real-world problems.</p>
+        </div>
+
+        <!-- Projects Section -->
+        <div id="projects" class="content-section">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="project">
+                    <img src="crusine.jpg" alt="Crusine App">
+                    <h3>Crusine App</h3>
+                    <p>Engineered a platform to redistribute food waste. Won First Place at EcoMake.</p>
                 </div>
-            </div>                    
-            <div id="visualizations" class="tab-content">
-                <h2>Linguistics Visualizations</h2>
-                <p>Explore interactive visualizations of linguistic trends!</p>
+                <div class="project">
+                    <img src="lingml.jpg" alt="Linguistics ML Algorithm">
+                    <h3>Linguistics ML Algorithm</h3>
+                    <p>Built a Naïve Bayes classifier to analyze linguistic patterns with 63% accuracy.</p>
+                </div>
+                <div class="project">
+                    <img src="lcwe.png" alt="Bilingual NLP">
+                    <h3>Bilingual NLP Website</h3>
+                    <p>Developed an NLP-driven translation system for the Lafayette Latino Cultural Center.</p>
+                </div>
             </div>
-            
+        </div>
+
+        <!-- Visualizations Section -->
+        <div id="visualizations" class="content-section">
+            <h2>Visualizations</h2>
+            <p>Explore interactive visualizations of linguistic trends and data-driven insights.</p>
         </div>
     </div>
+
+    <script>
+        function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            const sections = document.querySelectorAll('.content-section');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            sections.forEach(section => section.classList.remove('active'));
+
+            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
