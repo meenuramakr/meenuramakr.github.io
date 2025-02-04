@@ -1,4 +1,4 @@
-/* General Layout */
+/* ==================== GENERAL LAYOUT ==================== */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -11,79 +11,421 @@ body {
     overflow: hidden;
 }
 
-/* Landing Page */
+/* ==================== LANDING PAGE (UNCHANGED) ==================== */
 .landing-page {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #3A3B64;
+    background: linear-gradient(to bottom, #1A1B3A, #2C2A4A); /* Darker gradient */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hidden {
-    display: none;
+    display: none !important; /* Ensures it's fully hidden */
+    opacity: 0; /* Prevents any flickering */
+    transition: opacity 0.3s ease-in-out;
 }
 
 /* Retro Animation */
-@keyframes fadeOut {
+@keyframes slideUp {
     0% {
+        transform: translateY(0);
         opacity: 1;
-        transform: scale(1);
     }
     100% {
+        transform: translateY(-100%);
         opacity: 0;
-        transform: scale(0.95);
     }
 }
 
-/* Dashboard Layout */
+/* Ensure the landing page moves up when hidden */
+.landing-page.slide-up {
+    animation: slideUp 1s ease-in-out forwards;
+}
+
+/* Outer Console Styling (No Graph Paper) */
+.landing-console {
+    background: #3A3B64; /* Keep the existing background */
+    padding: 20px; /* Keep padding for balanced spacing */
+    border-radius: 15px; /* Rounded corners for retro feel */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+                0 0 15px #8B8DD9, /* Add outer glow */
+                inset 0 0 10px rgba(0, 0, 0, 0.5); /* Inner shadow */
+    text-align: center;
+    width: 600px; /* Keep the width for proper proportions */
+    height: 500px; /* Adjusted for better spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Ensure even spacing inside */
+    align-items: center;
+    gap: 15px; /* Matches spacing between elements */
+    border: 4px solid #6F70C7; /* Unified border color */
+    position: relative;
+}
+
+/* Common Box Styling (Info, Fun Fact, Progress Box) */
+.info-box, .fun-fact {
+    background: #2C2A4A; /* Matches all sections */
+    border: 4px solid #6F70C7; /* Unified border */
+    border-radius: 15px; /* Rounded corners for retro feel */
+    background-image: linear-gradient(to bottom, #2C2A4A, #1E1E3E 80%); /* Consistent gradient */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5),
+                0 0 15px rgba(139, 141, 217, 0.3); /* Balanced glow */
+    color: #E5E5FF; /* Unified soft blue text color */
+    font-family: 'Roboto Mono', monospace; /* Cohesive font */
+}
+
+/* Apply Graph Paper Effect ONLY to .info-box and .fun-fact */
+.info-box::before, 
+.fun-fact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+            rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(
+            90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 15px 15px;
+    pointer-events: none;
+    opacity: 0.3;
+    border-radius: 15px;
+    z-index: 0; /* Ensures it stays in the background */
+}
+
+
+/* Headings in All Boxes */
+.info-box h1 {
+    font-family: 'Orbitron', sans-serif; /* Retro futuristic font */
+    font-size: 28px; /* Bold and impactful */
+    text-transform: uppercase; /* Forces all text to be uppercase */
+    letter-spacing: 2px; /* Adds spacing for a clean, arcade look */
+    color: #D6C6FF; /* Light purple for readability */
+    text-shadow: 
+        2px 2px 0px #1A152E, /* Dark purple outline */
+        0 0 10px rgba(214, 198, 255, 0.8); /* Soft glow for depth */
+}
+
+/* Paragraph Text in All Boxes */
+.info-box p, .fun-fact p {
+    color: #CCCCFF; /* Soft white with a blue tint */
+}
+
+/* Fun Fact Box - Fixed Size */
+.fun-fact {
+    color: #E5E5FF; /* Unified text color */
+    text-shadow: 0 0 8px rgba(229, 229, 255, 0.2); /* Subtle glow */
+}
+
+/* "Journey to Graduation" Title (No Box) */
+.progress-title {
+    font-size: 20px;
+    color: #8B8DD9; /* Soft futuristic blue */
+    text-transform: uppercase; /* Retro gaming text */
+    letter-spacing: 2px; /* More defined */
+    text-shadow: 0 0 10px #8B8DD9; /* Subtle glow effect */
+    white-space: nowrap; /* Keeps text on one line */
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px; /* Moves progress bar closer */
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    margin-top: -30px;
+    margin-bottom: 8px;
+    height: 20px; /* Increased height for better visibility */
+    background: linear-gradient(to right, #1E1E3E, #2C2A4A); /* Matching gradient */
+    border: 2px solid #6F70C7; /* Unified border */
+    border-radius: 12px; /* Rounded edges for smoother look */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Balanced glow */
+}
+
+/* Progress Fill (Actual Bar) */
+.progress {
+    height: 100%;
+    width: 90%; /* Ensures it reaches 90% */
+    background: linear-gradient(to right, #8B8DD9, #6F70C7, #8B8DD9); /* Consistent gradient */
+    border-radius: 12px; /* Matches progress bar edges */
+    animation: loadProgress 2s ease-out forwards;
+}
+
+/* Animations */
+@keyframes loadProgress {
+    from { width: 0; }
+    to { width: 90%; }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* ==================== BUTTONS ==================== */
+
+/* Buttons Container */
+.buttons-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Retro Audio Button */
+.audio-button {
+    background: #E67E22; /* Retro Orange */
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3),
+                0 0 10px #FFA14A;
+    transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+/* Audio Icon */
+.audio-icon {
+    width: 26px;
+    height: 26px;
+    fill: #222222;
+}
+
+/* Hover Effect */
+.audio-button:hover {
+    transform: scale(1.1);
+    background: #FF9F43;
+    box-shadow: 0 0 15px #FFB066;
+}
+
+/* Start Button */
+.start-button {
+    background: #F2A71B;
+    color: #000;
+    font-size: 16px;
+    padding: 15px 25px;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3),
+                0 0 10px #FFC04D,
+                inset 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s ease-in-out, background-color 0.3s;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+.start-button:hover {
+    transform: scale(1.1);
+    background: #FFC04D;
+}
+
+/* ==================== DASHBOARD LAYOUT ==================== */
 .dashboard {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 3fr; /* Profile on the left, content on the right */
     gap: 20px;
     padding: 20px;
     width: 90%;
     max-width: 1200px;
     height: 90vh;
     background: #3B3A5A;
+    border-radius: 15px;
+}
+
+/* ==================== CHARACTER PROFILE BOX ==================== */
+.profile-section {
+    background: #1A1B3A;
+    padding: 25px;
+    border-radius: 12px;
+    border: 4px solid #6F70C7;
+    box-shadow: 0 0 15px rgba(139, 141, 217, 0.6), inset 0 0 8px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+}
+
+/* Vintage Arcade Border - Styled to Fit Profile Box */
+.profile-section::before {
+    content: "PLAYER PROFILE";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #8B8DD9;
+    background: #1A1B3A;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 3px dashed #6F70C7;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+/* ==================== CHARACTER AVATAR ==================== */
+.character-avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background: rgba(34, 35, 70, 0.8);
+    border: 3px dashed #8B8DD9;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-left:60px;
+    box-shadow: 0 0 10px rgba(139, 141, 217, 0.5);
+}
+
+.character-avatar {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* ==================== CHARACTER NAME & TITLE ==================== */
+.character-profile h1 {
+    font-size: 20px;
+    color: #D6C6FF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Press Start 2P', sans-serif;
+    margin: 8px 0;
+}
+
+.character-profile p {
+    font-size: 13px;
+    color: #8B8DD9;
+    font-family: 'Roboto Mono', monospace;
+    margin-bottom: 15px;
+}
+
+/* ==================== CHARACTER STATS SECTION ==================== */
+.character-stats {
+    background: linear-gradient(to bottom, #222348, #181936);
+    padding: 8px;
+    border-radius: 8px;
+    border: 3px dashed #8B8DD9;
+    font-size: 10px;
+    text-align: right;
+    color: #D1D1E0;
+    width: 100%;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+    margin-left: -10px; /* Move box to the left */
+}
+
+/* Character Stats Title */
+.character-stats h3 {
+    font-size: 12px; /* Slightly smaller */
+    color: #8B8DD9;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 8px; /* Adjusted spacing */
+}
+
+/* Character Stats List */
+.character-stats ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* Reduced from 5px */
+}
+
+/* Individual Stat Items */
+.character-stats li {
+    font-size: 10px; /* Reduced from 12px */
+    color: #D1D1E0;
+    text-transform: uppercase;
+    font-family: 'Roboto Mono', monospace;
+    background: rgba(34, 35, 70, 0.8);
+    padding: 3px; /* Reduced from 8px */
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #6F70C7;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Highlight Key Attributes */
+.character-stats li strong {
+    color: #D6C6FF;
+}
+
+
+/* ==================== RIGHT SIDE (ABOUT ME SECTION) ==================== */
+.main-content {
+    background: #393A5A;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
 /* Tab Navigation */
 .tab-navigation {
     display: flex;
     justify-content: space-around;
-    background: #393A5A;
-    border-radius: 10px;
-    padding: 10px;
+    background: #222348;
+    border-radius: 8px;
+    padding: 8px;
 }
 
 .tab {
     background: none;
     border: none;
     color: #FFFFFF;
+    font-size: 12px;
     cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 8px 15px;
+    border-radius: 6px;
     transition: background-color 0.3s ease;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 .tab.active {
     background-color: #8B8DD9;
 }
 
+/* Tab Content Sections */
 .content-section {
     display: none;
+    padding: 15px;
+    color: #E5E5FF;
+    font-size: 14px;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .content-section.active {
     display: block;
 }
 
-/* Projects Section */
+/* ==================== PROJECTS SECTION ==================== */
 .projects-grid {
     display: flex;
     flex-wrap: wrap;
@@ -97,7 +439,7 @@ body {
     background: #3A3B64;
     padding: 15px;
     border-radius: 10px;
-    width: 300px; /* Ensures items are consistent in size */
+    width: 300px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -130,157 +472,4 @@ body {
     margin: 5px 0;
 }
 
-.subtext {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #D1D1E0;
-}
 
-/* Info Box Styling */
-.landing-console {
-    background: #3A3B64;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.info-box {
-    background: #2C2A4A;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-    color: #FFFFFF;
-    width: 100%;
-    text-align: center;
-}
-
-.info-box h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.info-box p {
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* Buttons Container */
-.buttons-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-/* Audio Button */
-.audio-button {
-    background: #6F70C7;
-    color: #FFFFFF;
-    font-size: 18px;
-    padding: 10px 15px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease-in-out, background-color 0.3s;
-}
-
-.audio-button:hover {
-    transform: scale(1.1);
-    background: #8B8DD9;
-}
-
-/* Start Button */
-.start-button {
-    background: #F2A71B;
-    color: #000;
-    font-size: 16px;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease-in-out, background-color 0.3s;
-}
-
-.start-button:hover {
-    transform: scale(1.1);
-    background: #FFC04D;
-}
-
-/* Character Profile Section */
-.character-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #3A3B64;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    animation: popIn 1s ease-out;
-    width: 100%; /* Fit the profile section */
-}
-
-.character-box {
-    background: #2C2A4A;
-    padding: 15px;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.character-avatar {
-    width: 150px;
-    height: auto;
-    border-radius: 15px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.character-avatar:hover {
-    transform: scale(1.1);
-}
-
-.character-profile h1 {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #FFFFFF;
-}
-
-.character-profile p {
-    font-size: 14px;
-    color: #F2F2F2;
-    margin-bottom: 20px;
-}
-
-/* Character Stats */
-.character-stats {
-    width: 100%;
-    text-align: center;
-}
-
-.character-stats h3 {
-    font-size: 16px;
-    color: #F2A71B;
-    margin-bottom: 10px;
-}
-
-.character-stats ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.character-stats li {
-    font-size: 14px;
-    color: #D1D1E0;
-    margin: 5px 0;
-}

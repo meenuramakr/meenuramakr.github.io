@@ -4,54 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meenakshi Ramakrishnan | Portfolio</title>
+
+    <!-- Font Imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Landing Page -->
+
+
+    <!-- ==================== LANDING PAGE ==================== -->
     <div id="landing-page" class="landing-page">
         <div class="landing-console">
-        <div class="info-box">
-            <h1>Hi, I’m Meenakshi</h1>
-            <p>I go by Meenu. I’m a Purdue student passionate about connecting data, language, and innovation to solve real-world challenges.</p>
-        </div>
-        <div class="buttons-container">
-            <!-- Audio Button -->
-            <button class="audio-button" onclick="playNameAudio()">
-                🔊
-            </button>
-            <!-- Start Button -->
-            <button class="start-button" onclick="transitionToDashboard()">Start</button>
+            <!-- Screen -->
+            <div class="screen">
+                <div class="static"></div>
+                <div class="info-box">
+                    <h1>Hi, I’m Meenakshi! </h1> 
+                    <p> You can call me Meenu. I’m passionate about connecting data, language, and innovation to solve real-world challenges.</p>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                <p id="fun-fact-text"></p>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-box">
+                    <p class="progress-title" id="progress-text"></p> <!-- Typing Effect Here -->
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+            </div>
+            
+    
+            <!-- Buttons Section -->
+            <div class="buttons-container">
+                <button class="audio-button" onclick="playNameAudio()">
+                    <svg class="audio-icon" viewBox="0 0 24 24">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.06c1.5-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89 1.06 5 3.89 5 7.71s-2.11 6.65-5 7.71v2.06c4.01-1.25 7-5.15 7-9.77s-2.99-8.52-7-9.77z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="start-button" onclick="transitionToDashboard()">Start</button>
+            </div>
         </div>
     </div>
     
-    </div>
-
-    <!-- Main Dashboard -->
+    
+    
+    <!-- ==================== MAIN DASHBOARD ==================== -->
     <div id="dashboard" class="dashboard hidden">
-        <!-- Profile Section -->
+
+        <!-- ==================== PROFILE SECTION ==================== -->
         <div class="profile-section">
-            <div class="character-profile">
-                <div class="character-box">
-                    <img src="your-avatar.png" alt="Meenakshi Avatar" class="character-avatar">
+            <div class="character-screen">
+                <div class="screen-border">
+                    <div class="screen-ui-left"></div>
+                    <div class="screen-ui-right"></div>
                 </div>
-                <h1>Meenakshi Ramakrishnan</h1>
-                <p>Data Scientist | Linguist | Innovator</p>
-                <div class="character-stats">
-                    <h3>Character Stats</h3>
-                    <ul>
-                        <li><strong>Strength:</strong> Data Analysis</li>
-                        <li><strong>Agility:</strong> Machine Learning Models</li>
-                        <li><strong>Intelligence:</strong> NLP & Linguistics</li>
-                        <li><strong>Special Skill:</strong> Visualization Wizardry</li>
-                        <li><strong>Bonus:</strong> Multilingual Fluency</li>
-                    </ul>
+                <div class="character-profile">
+                    <div class="character-avatar-wrapper">
+                        <img src="myavatar.png" alt="Meenakshi Avatar" class="character-avatar">
+                    </div>                    
+                    <h1>Meenakshi Ramakrishnan</h1>
+                    <p>Data Scientist | Linguist | Innovator</p>
+                    
+                    <!-- Character Stats (Now Scrollable) -->
+                    <div class="character-stats">
+                        <h3>Skills</h3>
+                        <ul>
+                            <li><strong>Programming:</strong> Python, R, SQL, JavaScript</li>
+                            <li><strong>ML & NLP:</strong> TensorFlow, scikit-learn, Naïve Bayes</li>
+                            <li><strong>Cloud & APIs:</strong> AWS Certified, RESTful APIs</li>
+                        </ul>
+        
+                        <h3>Achievements</h3>
+                        <ul>
+                            <li><strong>1st Place:</strong> EcoMake 2020</li>
+                            <li><strong>Published:</strong> PLOS One Journal, Purdue Exponent Reporter</li>
+                            <li><strong>Experience:</strong> Citi Bank, Liberty Mutual</li>
+                        </ul>
+        
+                        <h3>Boosts</h3>
+                        <ul>
+                            <li><strong>Prioritize:</strong> Building for accessibility & social impact</li>
+                            <li><strong>Leadership:</strong> Led Teams in Machine Learning Initiative & IEEE Racing</li>
+                            <li><strong>Versatile:</strong> Bridging data, language, and human behavior</li>
+                        </ul>
+                    </div>
                 </div>
-                <button class="contact-button">Contact Me</button>
             </div>
         </div>
         
 
+        
         <!-- Main Content Section -->
         <div class="main-content">
             <div class="tab-navigation">
@@ -112,24 +162,28 @@
         </div>
     </div>
 
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
         function transitionToDashboard() {
             const landingPage = document.getElementById('landing-page');
             const dashboard = document.getElementById('dashboard');
-            const characterProfile = document.querySelector('.character-profile');
-            
-            landingPage.style.animation = 'fadeOut 1s ease-in-out';
-            
-            setTimeout(() => {
-                landingPage.classList.add('hidden');
-                dashboard.classList.remove('hidden');
-                
-                // Ensure character profile is visible only after transitioning
-                characterProfile.style.opacity = 1;
-                characterProfile.style.transform = 'scale(1)';
-            }, 1000);
-        }
     
+        // Check if elements exist
+            if (!landingPage || !dashboard) {
+                console.error('Landing page or dashboard element not found.');
+                return;
+            }
+    
+        // Add slide-up animation
+            landingPage.classList.add('slide-up');
+    
+        // Wait for the animation to complete before hiding the landing page
+            setTimeout(() => {
+                landingPage.style.display = 'none'; // Fully hide the landing page
+                dashboard.classList.remove('hidden'); // Show the dashboard
+                dashboard.style.display = 'grid'; // Ensure it appears correctly
+            }, 1000); // Matches the animation duration
+        }
     
         function switchTab(tabId) {
             const tabs = document.querySelectorAll('.tab');
@@ -143,12 +197,49 @@
         }
     
         function playNameAudio() {
-            const audio = new Audio('meenu_pronunciation.mp3'); 
-            audio.play();
+        try {
+            const audio = new Audio('meenu_pronunciation.mp3'); // Ensure the file path is correct
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        } catch (error) {
+            console.error('Audio playback error:', error);
         }
+        }
+
+        const funFacts = [
+            "I’ve been performing Bharatanatyam since I was six – I love finding new ways to combine dance and storytelling.",
+            "I’m stuck in the ’90s according to my Spotify Wrapped, and honestly, I love it there.",
+            "I’m loyal to the U.S. Women’s Soccer Team – their 2019 World Cup win still feels like a national holiday to me.",
+            "I’ve re-read my Tintin collection so many times, I’m surprised the pages haven’t started protesting.",
+            "I love sketching portraits – there’s something magical about capturing emotions on paper.",
+            "I’m learning to crochet, and my first project is a blanket that’s definitely not straight but full of love.",
+            "Rewatching 'Mission: Impossible' (the first one) is my ultimate comfort movie ritual.",
+        ];
+        let factIndex = 0;
+
+        function showFunFact() {
+            document.getElementById('fun-fact-text').textContent = funFacts[factIndex];
+            factIndex = (factIndex + 1) % funFacts.length; // Cycle through facts
+            setTimeout(showFunFact, 5000); // Change fact every 5 seconds
+        }
+        showFunFact();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "Journey to Graduation...";
+            let index = 0;
+            function typeEffect() {
+                if (index < text.length) {
+                    document.getElementById("progress-text").textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeEffect, 150); // Speed of typing
+                }
+            }
+            typeEffect();
+        });
+
     </script>
     
 
-    </script>
 </body>
 </html>
