@@ -241,73 +241,62 @@ body {
 /* ==================== DASHBOARD LAYOUT ==================== */
 .dashboard {
     display: grid;
-    grid-template-columns: 1fr 3fr; /* Profile on the left, content on the right */
-    gap: 20px;
+    grid-template-columns: 1fr 3fr;
+    gap: 15px;
     padding: 20px;
     width: 90%;
     max-width: 1200px;
     height: 90vh;
-    background: #3B3A5A;
+    background: linear-gradient(to bottom, #2B2B4B, #1A1B3A); /* Smooth gradient */
     border-radius: 15px;
+    border: 3px solid #5C5EAF; /* Softer, modern blue */
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.3), /* Subtle drop shadow */
+        inset 0 0 10px rgba(255, 255, 255, 0.05); /* Gentle inner lighting */
+    position: relative;
 }
 
 /* ==================== CHARACTER PROFILE BOX ==================== */
 .profile-section {
-    background: #1A1B3A;
-    padding: 25px;
+    background: linear-gradient(to bottom, #1E1E2E, #252540); /* Matches dashboard for seamless fit */
+    padding: 15px;
     border-radius: 12px;
-    border: 4px solid #6F70C7;
-    box-shadow: 0 0 15px rgba(139, 141, 217, 0.6), inset 0 0 8px rgba(0, 0, 0, 0.7);
+    border: none; /* Remove separate border */
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 400px;
-    position: relative;
+    max-width: 340px;
     text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
-/* Vintage Arcade Border - Styled to Fit Profile Box */
-.profile-section::before {
-    content: "PLAYER PROFILE";
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px;
-    color: #8B8DD9;
-    background: #1A1B3A;
-    padding: 5px 15px;
-    border-radius: 5px;
-    border: 3px dashed #6F70C7;
-    font-family: 'Press Start 2P', sans-serif;
-}
 
 /* ==================== CHARACTER AVATAR ==================== */
 .character-avatar-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 150px;
-    background: rgba(34, 35, 70, 0.8);
-    border: 3px dashed #8B8DD9;
-    padding: 10px;
+    width: 130px;
+    height: 130px;
+    background: linear-gradient(to bottom, #3A3B64, #1E1E2E); /* Subtle highlight effect */
+    border-radius: 60%; /* Circular avatar */
     margin-bottom: 15px;
-    margin-top: 10px;
-    margin-left:60px;
-    box-shadow: 0 0 10px rgba(139, 141, 217, 0.5);
+    margin-top: 0px;
+    margin-left: 90px;
+    box-shadow: 0 0 15px rgba(139, 141, 217, 0.3); /* Soft glow for emphasis */
 }
 
 .character-avatar {
-    width: 100%;
+    width: 90%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 50%; /* Matches wrapper */
 }
 
 /* ==================== CHARACTER NAME & TITLE ==================== */
 .character-profile h1 {
-    font-size: 20px;
+    font-size: 18px;
     color: #D6C6FF;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -316,35 +305,36 @@ body {
 }
 
 .character-profile p {
-    font-size: 13px;
-    color: #8B8DD9;
+    font-size: 12px;
+    color: #A4A7D3;
     font-family: 'Roboto Mono', monospace;
     margin-bottom: 15px;
 }
 
 /* ==================== CHARACTER STATS SECTION ==================== */
 .character-stats {
-    background: linear-gradient(to bottom, #222348, #181936);
-    padding: 8px;
+    background: rgba(34, 35, 70, 0.8); /* Semi-transparent to blend in */
+    padding: 5px;
     border-radius: 8px;
-    border: 3px dashed #8B8DD9;
-    font-size: 10px;
-    text-align: right;
+    border: 3px dashed #6F70C7; /* Subtle border for definition */
+    font-size: 13px;
+    text-align: left; /* Align for readability */
     color: #D1D1E0;
     width: 100%;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
-    margin-left: -10px; /* Move box to the left */
+    margin-left: -10px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5); /* Adds depth */
 }
 
 /* Character Stats Title */
 .character-stats h3 {
-    font-size: 12px; /* Slightly smaller */
+    font-size: 14px; /* Slightly larger */
     color: #8B8DD9;
     text-align: center;
     text-transform: uppercase;
+    margin-top: 5px;
     font-family: 'Press Start 2P', sans-serif;
     letter-spacing: 1px;
-    margin-bottom: 8px; /* Adjusted spacing */
+    margin-bottom: 5px; /* Adjusted spacing */
 }
 
 /* Character Stats List */
@@ -353,47 +343,38 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 1px; /* Reduced from 5px */
+    gap: 8px; /* Unified spacing */
 }
 
 /* Individual Stat Items */
 .character-stats li {
-    font-size: 10px; /* Reduced from 12px */
-    color: #D1D1E0;
-    text-transform: uppercase;
-    font-family: 'Roboto Mono', monospace;
-    background: rgba(34, 35, 70, 0.8);
-    padding: 3px; /* Reduced from 8px */
+    font-size: 11px;
+    color: #D6C6FF;
+    background: rgba(40, 42, 80, 0.9);
+    padding: 8px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-    border: 2px solid #6F70C7;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid #6F70C7;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
-
 
 /* Highlight Key Attributes */
 .character-stats li strong {
-    color: #D6C6FF;
+    color: #E5E5FF;
 }
 
 
 /* ==================== RIGHT SIDE (ABOUT ME SECTION) ==================== */
-.main-content {
-    background: #393A5A;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 100%;
-}
 
 /* Tab Navigation */
 .tab-navigation {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly; /* Ensures even spacing */
     background: #222348;
     border-radius: 8px;
     padding: 8px;
+    width: 100%;
 }
 
 .tab {
@@ -415,7 +396,7 @@ body {
 /* Tab Content Sections */
 .content-section {
     display: none;
-    padding: 15px;
+    padding: 40px;
     color: #E5E5FF;
     font-size: 14px;
     font-family: 'Roboto Mono', monospace;
@@ -429,10 +410,12 @@ body {
 .projects-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
+    gap: 15px;  /* Reduces spacing */
+    justify-content: center; /* Aligns with the outer box */
     margin-top: 20px;
+    max-width: 95%; /* Keeps it inside the layout */
 }
+
 
 .project-item {
     text-align: center;
