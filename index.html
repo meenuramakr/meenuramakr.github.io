@@ -3,244 +3,565 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meenakshi Ramakrishnan | Portfolio</title>
+    <title>MEENU.EXE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1a1a2e;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', monospace;
+        }
+        .game-window {
+            width: 800px;
+            background: #16213e;
+            border: 2px solid white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .title-bar {
+            background: #16213e;
+            color: white;
+            padding: 12px 16px;
+            border-bottom: 1px solid white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .stats-display {
+            padding: 40px;
+            color: white;
+        }
+        .stat-line {
+            font-size: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .stat-label {
+            font-weight: bold;
+            margin-right: 12px;
+        }
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .menu-button {
+            width: 300px;
+            height: 60px;
+            background: #0f1419;
+            border: 2px solid #00ffff;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu-button:hover {
+            box-shadow: 0 0 20px #00ffff;
+            background: #1a2332;
+        }
+        .page {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        .page.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .tech-page, .impact-page, .skills-page, .contact-page {
+            display: none;
+            height: 100vh;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .tech-page.active, .impact-page.active, .skills-page.active, .contact-page.active {
+            display: block;
+            opacity: 1;
+        }
+        .stats-display {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        .stats-display.hidden {
+            opacity: 0;
+        }
+        .nav-bar {
+            background: #16213e;
+            color: white;
+            padding: 12px 16px;
+            border-bottom: 1px solid white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .tech-content {
+            padding: 0;
+        }
+        .tech-card {
+            background: #0f1419;
+            color: white;
+            padding: 40px;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .tech-card h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        .diagram-placeholder {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            height: 200px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .tech-card p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .project-card {
+            background: #0f1419;
+            color: white;
+            padding: 40px;
+            min-height: 90vh;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            background: #1a2332;
+        }
+        .expandable {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #1a1a2e;
+            border: 1px solid #333;
+        }
+        .expandable.active {
+            display: block;
+        }
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #00ffff;
+        }
+        .expand-btn {
+            background: #0f1419;
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+        }
+        .expand-btn:hover {
+            background: #00ffff;
+            color: #0f1419;
+        }
 
-    <!-- Font Imports -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+        .impact-story {
+            background: #0f1419;
+            color: white;
+            padding: 60px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .impact-story h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        .metric-display {
+            font-size: 48px;
+            color: #00ffff;
+            font-weight: bold;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .impact-story p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .how-it-works {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: calc(100vh - 45px);
+            gap: 2px;
+        }
+        .skill-tile {
+            background: #0f1419;
+            color: white;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .skill-tile:hover {
+            background: #1a2332;
+            box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+        .skill-tile h3 {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .skill-detail {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0f1419;
+            color: white;
+            padding: 60px;
+            z-index: 1000;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .skill-detail.active {
+            display: block;
+            opacity: 1;
+        }
+        .skill-detail h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        .skill-detail p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-content {
+            background: #0f1419;
+            color: white;
+            padding: 60px;
+            min-height: calc(100vh - 45px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .contact-header h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .contact-header p {
+            font-size: 20px;
+            color: #00ffff;
+        }
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 600px;
+            width: 100%;
+        }
+        .contact-card {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+        .contact-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .contact-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .contact-card p {
+            font-size: 14px;
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
-
-
-    <!-- ==================== LANDING PAGE ==================== -->
-    <div id="landing-page" class="landing-page">
-        <div class="landing-console">
-            <!-- Screen -->
-            <div class="screen">
-                <div class="static"></div>
-                <div class="info-box">
-                    <h1>Hi, I’m Meenakshi! </h1> 
-                    <p> You can call me Meenu. I’m passionate about connecting data, language, and innovation to solve real-world challenges.</p>
+    <div class="game-window">
+        <div class="title-bar">MEENU.EXE</div>
+        <div class="stats-display">
+            <div class="stat-line">
+                <span class="stat-label">Class:</span>
+                <span>Data Scientist</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">Level:</span>
+                <span>Graduate Student</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">Next:</span>
+                <span>Full-Time Engineer</span>
+            </div>
+            <div class="menu-buttons">
+                <button class="menu-button" onclick="showTechPage()">TECHNICAL BUILDS</button>
+                <button class="menu-button" onclick="showImpactPage()">IMPACT STORIES</button>
+                <button class="menu-button" onclick="showSkillsPage()">UNIQUE SKILLS</button>
+                <button class="menu-button" onclick="showContactPage()">CONTACT</button>
+            </div>
+        </div>
+        <div class="tech-page" id="techPage">
+            <div class="nav-bar" onclick="showMainPage()">← BACK | TECHNICAL BUILDS</div>
+            <div class="tech-content">
+                <div class="project-card" onclick="toggleExpand('wheelchair')">
+                    <h2>AI-Powered Wheelchair Damage Detection</h2>
+                    <div class="flow-diagram">Pre-Flight Image → GPT-4 Vision → Damage Analysis → Liability Assessment → Customer Communication</div>
+                    <p><strong>Tech Stack:</strong> Node.js/Express, OpenAI GPT-4 Vision, Multi-stage processing pipeline</p>
+                    <p><strong>Business Impact:</strong> Complete airline workflow automation</p>
+                    <button class="expand-btn">View Architecture</button>
+                    <div class="expandable" id="wheelchair-expand">
+                        <h3>4-Tab UI Design</h3>
+                        <p><strong>Pre-Flight:</strong> Baseline image capture and initial assessment</p>
+                        <p><strong>Post-Flight:</strong> Damage detection and severity analysis</p>
+                        <p><strong>Analytics:</strong> Damage patterns and cost tracking</p>
+                        <p><strong>Customer Service:</strong> Automated communication and claims processing</p>
+                        <div style="background: #1a1a2e; border: 1px solid #333; padding: 15px; margin: 15px 0; font-size: 12px;">
+                            Frontend: 4-tab vanilla JS interface → Backend: Node.js API → AI: OpenAI GPT-4 Vision → Storage: JSON-based with audit trails → Output: Professional reports + customer communications
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="fun-fact">
-                <p id="fun-fact-text"></p>
-            </div>
-
-            <div class="progress-container">
-                <div class="progress-box">
-                    <p class="progress-title" id="progress-text"></p> <!-- Typing Effect Here -->
-                    <div class="progress-bar">
-                        <div class="progress"></div>
+                <div class="project-card" onclick="toggleExpand('weather')">
+                    <h2>WRF Aviation Weather Forecasting</h2>
+                    <div class="flow-diagram">GFS Data → WRF Model → Flight Route Analysis → Pilot Briefings</div>
+                    <p><strong>Technical Components:</strong> Weather Research & Forecasting model, AWS Lambda deployment, Interactive weather maps, Point-to-point flight planning</p>
+                    <p><strong>User Story:</strong> From 'JFK → LAX at FL350' to complete weather briefing</p>
+                    <div style="background: #1a1a2e; border: 1px solid #333; padding: 15px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 12px; color: #00ffff;">
+                        python flight_weather.py JFK LAX
+                    </div>
+                    <button class="expand-btn">View System Demo</button>
+                    <div class="expandable" id="weather-expand">
+                        <h3>Live System Architecture</h3>
+                        <div style="background: #1a1a2e; border: 1px solid #333; padding: 15px; margin: 15px 0; font-size: 12px;">
+                            GFS Data → WRF Processing → Python Analysis → AWS Deployment → Interactive Maps
+                        </div>
+                        <p><strong>Demo Flow:</strong> Enter route codes → See weather briefing → View interactive maps</p>
+                        <p><strong>Full Workflow:</strong> Real-time data ingestion → High-resolution forecasting → Route-specific analysis → Pilot-ready briefings</p>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <h2>Technical Decisions</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 20px 0;">
+                        <div>
+                            <h3 style="color: #00ffff; margin-bottom: 15px;">Why GPT-4 Vision for Wheelchair Analysis</h3>
+                            <p style="font-size: 16px;">Professional inspection-grade accuracy, confidence scoring, handles complex damage patterns</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #00ffff; margin-bottom: 15px;">Why WRF over Commercial Weather</h3>
+                            <p style="font-size: 16px;">High-resolution aviation-specific forecasts, Delta hub optimization, real-time route customization</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-    
-            <!-- Buttons Section -->
-            <div class="buttons-container">
-                <button class="audio-button" onclick="playNameAudio()">
-                    <svg class="audio-icon" viewBox="0 0 24 24">
-                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1-3.29-2.5-4.03v8.06c1.5-.74 2.5-2.26 2.5-4.03zM14 3.23v2.06c2.89 1.06 5 3.89 5 7.71s-2.11 6.65-5 7.71v2.06c4.01-1.25 7-5.15 7-9.77s-2.99-8.52-7-9.77z" fill="currentColor"/>
-                    </svg>
-                </button>
-                <button class="start-button" onclick="transitionToDashboard()">Start</button>
+        </div>
+        <div class="impact-page" id="impactPage">
+            <div class="nav-bar" onclick="showMainPage()">← BACK | IMPACT STORIES</div>
+            <div class="impact-content">
+                <div class="impact-story">
+                    <h2>Delta Impact</h2>
+                    <div class="metric-display">$2M saved</div>
+                    <p>Through early weather predictions and optimized flight routing decisions.</p>
+                    <div class="how-it-works">
+                        <h3>How it works:</h3>
+                        <p>Real-time ensemble models process satellite data, ground sensors, and historical patterns to predict severe weather 6-12 hours earlier than traditional methods. This enables proactive flight rerouting, reducing delays and fuel costs.</p>
+                    </div>
+                </div>
+                <div class="impact-story">
+                    <h2>Citi Impact</h2>
+                    <div class="metric-display">20% efficiency boost</div>
+                    <p>Fraud detection system processing 50,000+ transactions daily with improved accuracy.</p>
+                    <div class="how-it-works">
+                        <h3>How it works:</h3>
+                        <p>Machine learning pipeline analyzing transaction patterns, user behavior, and network effects. Reduced false positives by 35% while catching 15% more actual fraud cases through advanced feature engineering.</p>
+                    </div>
+                </div>
+                <div class="impact-story">
+                    <h2>Research Impact</h2>
+                    <div class="metric-display">63% accuracy</div>
+                    <p>Multilingual NLP classifier for underrepresented languages and cultural contexts.</p>
+                    <div class="how-it-works">
+                        <h3>How it works:</h3>
+                        <p>Novel approach combining linguistic features with cultural context embeddings. Published research advancing inclusive AI development for global applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-page" id="skillsPage">
+            <div class="nav-bar" onclick="showMainPage()">← BACK | UNIQUE SKILLS</div>
+            <div class="skills-grid">
+                <div class="skill-tile" onclick="showSkillDetail('linguistics')">
+                    <h3>Linguistics + ML</h3>
+                </div>
+                <div class="skill-tile" onclick="showSkillDetail('insights')">
+                    <h3>Cross-Industry Insights</h3>
+                </div>
+                <div class="skill-tile" onclick="showSkillDetail('accessibility')">
+                    <h3>Accessibility-First Design</h3>
+                </div>
+                <div class="skill-tile" onclick="showSkillDetail('production')">
+                    <h3>Research to Production</h3>
+                </div>
+            </div>
+        </div>
+        <div class="skill-detail" id="linguisticsDetail">
+            <div class="nav-bar" onclick="hideSkillDetail()">← BACK | LINGUISTICS + ML</div>
+            <h2>Linguistics + ML</h2>
+            <p>Combining 4+ years of linguistics study with machine learning to build culturally-aware NLP systems.</p>
+            <p>Developed multilingual classifiers that understand code-switching patterns and cultural context, achieving 63% accuracy on underrepresented languages where traditional models fail.</p>
+            <p>This unique background enables me to spot linguistic biases in training data and design more inclusive AI systems.</p>
+        </div>
+        <div class="skill-detail" id="insightsDetail">
+            <div class="nav-bar" onclick="hideSkillDetail()">← BACK | CROSS-INDUSTRY INSIGHTS</div>
+            <h2>Cross-Industry Insights</h2>
+            <p>Experience across aviation (Delta), finance (Citi), and insurance (Liberty Mutual) provides unique perspective on ML applications.</p>
+            <p>Each industry taught different lessons: real-time decision making in aviation, fraud pattern recognition in finance, and regulatory compliance in insurance.</p>
+            <p>This breadth allows me to quickly identify transferable solutions and avoid common pitfalls when entering new domains.</p>
+        </div>
+        <div class="skill-detail" id="accessibilityDetail">
+            <div class="nav-bar" onclick="hideSkillDetail()">← BACK | ACCESSIBILITY-FIRST DESIGN</div>
+            <h2>Accessibility-First Design</h2>
+            <p>WCAG 2.1 certified with hands-on experience building inclusive interfaces and ML systems.</p>
+            <p>Developed wheelchair accessibility prediction models for airport terminals, combining IoT sensor data with passenger flow patterns.</p>
+            <p>Advocate for inclusive design practices that became team standards, ensuring technology works for everyone from day one.</p>
+        </div>
+        <div class="skill-detail" id="productionDetail">
+            <div class="nav-bar" onclick="hideSkillDetail()">← BACK | RESEARCH TO PRODUCTION</div>
+            <h2>Research to Production</h2>
+            <p>Bridge between academic research and production systems, with published work and deployed solutions.</p>
+            <p>Led 20+ ML workshops, translating complex research into practical implementations that teams can actually use.</p>
+            <p>Experience scaling research prototypes to handle 50,000+ daily transactions while maintaining model performance and reliability.</p>
+        </div>
+        <div class="contact-page" id="contactPage">
+            <div class="nav-bar" onclick="showMainPage()">← BACK | CONTACT</div>
+            <div class="contact-content">
+                <div class="contact-header">
+                    <h1>Let's Build Together</h1>
+                    <p>Available August 2025</p>
+                </div>
+                <div class="contact-cards">
+                    <a href="mailto:meenuramakr@gmail.com" class="contact-card">
+                        <h3>Email</h3>
+                        <p>meenuramakr@gmail.com</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/meenuramakr" target="_blank" class="contact-card">
+                        <h3>LinkedIn</h3>
+                        <p>Connect professionally</p>
+                    </a>
+                    <div class="contact-card">
+                        <h3>Current Project</h3>
+                        <p>Working on accessibility ML at Delta</p>
+                    </div>
+                    <a href="https://meenurama.substack.com/" target="_blank" class="contact-card">
+                        <h3>Substack</h3>
+                        <p>Research & insights</p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-    
-    
-    
-    <!-- ==================== MAIN DASHBOARD ==================== -->
-    <div id="dashboard" class="dashboard hidden">
-
-        <!-- ==================== PROFILE SECTION ==================== -->
-        <div class="profile-section">
-            <div class="character-screen">
-                <div class="screen-border">
-                    <div class="screen-ui-left"></div>
-                    <div class="screen-ui-right"></div>
-                </div>
-                <div class="character-profile">
-                    <div class="character-avatar-wrapper">
-                        <img src="myavatar.png" alt="Meenakshi Avatar" class="character-avatar">
-                    </div>                    
-                    <h1>Meenakshi Ramakrishnan</h1>
-                    <p>Data Scientist | NLP | Accessibility</p>
-
-                    
-                    <!-- Character Stats (Now Scrollable) -->
-                    <div class="character-stats">
-                        <h3>Skills</h3>
-                        <ul>
-                            <li><strong>Programming:</strong> Python, R, SQL, JavaScript</li>
-                            <li><strong>ML & NLP:</strong> TensorFlow, scikit-learn, Naïve Bayes</li>
-                            <li><strong>Cloud & APIs:</strong> AWS Certified, RESTful APIs</li>
-                        </ul>
-        
-                        <h3>Achievements</h3>
-                        <ul>
-                            <li><strong>1st Place:</strong> EcoMake 2020</li>
-                            <li><strong>Published:</strong> PLOS One Journal, Purdue Exponent Reporter</li>
-                            <li><strong>Experience:</strong> Citi Bank, Liberty Mutual</li>
-                        </ul>
-        
-                        <h3>Boosts</h3>
-                        <ul>
-                            <li><strong>Prioritize:</strong> Builds for accessibility & social impact</li>
-                            <li><strong>Leadership:</strong> Led Teams in ML Initiative & IEEE Racing</li>
-                            <li><strong>Versatile:</strong> Bridging data, language, and human behavior</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-
-        
-        <!-- Main Content Section -->
-        <div class="main-content">
-            <div class="tab-navigation">
-                <button class="tab active" data-tab="about" onclick="switchTab('about')">About Me</button>
-                <button class="tab" data-tab="projects" onclick="switchTab('projects')">Projects</button>
-                <button class="tab" data-tab="visualizations" onclick="switchTab('visualizations')">Visualizations</button>
-            </div>
-
-            <!-- About Me Section -->
-            <div id="about" class="content-section active">
-                <h2>About Me</h2>
-                <p>Hi, I'm Meenakshi, a passionate data scientist and linguist with a knack for solving real-world challenges through technology and creativity. Currently pursuing my Bachelor of Science in Statistics and Linguistics at Purdue University, I thrive at the intersection of data and language.</p>
-            </div>
-
-            <!-- Projects Section -->
-            <div id="projects" class="content-section">
-                <h2>Projects</h2>
-                <p class="subtext">Click on the icons below to view more details about each project.</p>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-item">
-                        <a href="https://github.com/bmohanda/EcoMake-2020" target="_blank">
-                            <img src="crusine.jpg" alt="Crusine App">
-                        </a>
-                        <h3>Crusine App</h3>
-                        <p><strong>Overview:</strong> Created a platform to redistribute surplus food to underserved communities.</p>
-                        <p><strong>Highlight:</strong> Won First Place at EcoMake for impactful innovation.</p>
-                    </div>
-                
-                    <!-- Project 2 -->
-                    <div class="project-item">
-                        <a href="https://github.com/meenuramakr/basic-dataset" target="_blank">
-                            <img src="lingml.jpg" alt="Linguistics ML Algorithm">
-                        </a>
-                        <h3>Linguistics ML Algorithm</h3>
-                        <p><strong>Overview:</strong> Developed a Naïve Bayes classifier for linguistic pattern recognition.</p>
-                        <p><strong>Highlight:</strong> Achieved 63% accuracy on real-world datasets.</p>
-                    </div>
-                
-                    <!-- Project 3 -->
-                    <div class="project-item">
-                        <a href="https://www.lcwelafayette.com/" target="_blank">
-                            <img src="lcwe.png" alt="Bilingual NLP Website">
-                        </a>
-                        <h3>Bilingual NLP Website</h3>
-                        <p><strong>Overview:</strong> Built an NLP-powered bilingual website for improved accessibility.</p>
-                        <p><strong>Highlight:</strong> Enhanced accessibility for 1,000+ users annually.</p>
-                    </div>
-                </div>
-                
-            </div>
-
-            <!-- Visualizations Section -->
-            <div id="visualizations" class="content-section">
-                <h2>Visualizations</h2>
-                <p>Dive into interactive visualizations that uncover insights from linguistic trends and real-world data.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-        function transitionToDashboard() {
-            const landingPage = document.getElementById('landing-page');
-            const dashboard = document.getElementById('dashboard');
-    
-        // Check if elements exist
-            if (!landingPage || !dashboard) {
-                console.error('Landing page or dashboard element not found.');
-                return;
-            }
-    
-        // Add slide-up animation
-            landingPage.classList.add('slide-up');
-    
-        // Wait for the animation to complete before hiding the landing page
+        function showPage(pageId) {
+            const statsDisplay = document.querySelector('.stats-display');
+            const targetPage = document.getElementById(pageId);
+            
+            statsDisplay.classList.add('hidden');
             setTimeout(() => {
-                landingPage.style.display = 'none'; // Fully hide the landing page
-                dashboard.classList.remove('hidden'); // Show the dashboard
-                dashboard.style.display = 'grid'; // Ensure it appears correctly
-            }, 1000); // Matches the animation duration
+                statsDisplay.style.display = 'none';
+                targetPage.style.display = 'block';
+                setTimeout(() => targetPage.classList.add('active'), 10);
+            }, 300);
         }
-    
-        function switchTab(tabId) {
-            const tabs = document.querySelectorAll('.tab');
-            const sections = document.querySelectorAll('.content-section');
-    
-            tabs.forEach(tab => tab.classList.remove('active'));
-            sections.forEach(section => section.classList.remove('active'));
-    
-            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
-            document.getElementById(tabId).classList.add('active');
+        
+        function showTechPage() { showPage('techPage'); }
+        function showImpactPage() { showPage('impactPage'); }
+        function showSkillsPage() { showPage('skillsPage'); }
+        function showContactPage() { showPage('contactPage'); }
+        
+        function showSkillDetail(skill) {
+            const detail = document.getElementById(skill + 'Detail');
+            detail.style.display = 'block';
+            setTimeout(() => detail.classList.add('active'), 10);
         }
-    
-        function playNameAudio() {
-        try {
-            const audio = new Audio('meenu_pronunciation.mp3'); // Ensure the file path is correct
-            audio.play().catch(error => {
-                console.error('Error playing audio:', error);
+        
+        function hideSkillDetail() {
+            document.querySelectorAll('.skill-detail').forEach(detail => {
+                detail.classList.remove('active');
+                setTimeout(() => detail.style.display = 'none', 300);
             });
-        } catch (error) {
-            console.error('Audio playback error:', error);
         }
+        
+        function showMainPage() {
+            const statsDisplay = document.querySelector('.stats-display');
+            const allPages = ['techPage', 'impactPage', 'skillsPage', 'contactPage'];
+            
+            allPages.forEach(pageId => {
+                const page = document.getElementById(pageId);
+                page.classList.remove('active');
+                setTimeout(() => page.style.display = 'none', 300);
+            });
+            
+            hideSkillDetail();
+            
+            setTimeout(() => {
+                statsDisplay.style.display = 'block';
+                statsDisplay.classList.remove('hidden');
+            }, 300);
         }
-
-        const funFacts = [
-            "I’ve been performing Bharatanatyam since I was six – I love finding new ways to combine dance and storytelling.",
-            "I’m stuck in the ’90s according to my Spotify Wrapped, and honestly, I love it there.",
-            "I’m loyal to the U.S. Women’s Soccer Team – their 2019 World Cup win still feels like a national holiday to me.",
-            "I’ve re-read my Tintin collection so many times, I’m surprised the pages haven’t started protesting.",
-            "I love sketching portraits – there’s something magical about capturing emotions on paper.",
-            "I’m learning to crochet, and my first project is a blanket that’s definitely not straight but full of love.",
-            "Rewatching 'Mission: Impossible' (the first one) is my ultimate comfort movie ritual.",
-        ];
-        let factIndex = 0;
-
-        function showFunFact() {
-            document.getElementById('fun-fact-text').textContent = funFacts[factIndex];
-            factIndex = (factIndex + 1) % funFacts.length; // Cycle through facts
-            setTimeout(showFunFact, 5000); // Change fact every 5 seconds
+        
+        function toggleExpand(projectId) {
+            const expandable = document.getElementById(projectId + '-expand');
+            expandable.classList.toggle('active');
         }
-        showFunFact();
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const text = "Journey to Graduation...";
-            let index = 0;
-            function typeEffect() {
-                if (index < text.length) {
-                    document.getElementById("progress-text").textContent += text.charAt(index);
-                    index++;
-                    setTimeout(typeEffect, 150); // Speed of typing
-                }
-            }
-            typeEffect();
-        });
-
     </script>
-    
-
 </body>
 </html>
